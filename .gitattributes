@@ -1,0 +1,6 @@
+# .gitattributes
+* text=auto
+
+# Pour les fichiers spécifiques
+*.srt text eol=lf
+*.json text eol=lf

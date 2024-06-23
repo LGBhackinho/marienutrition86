@@ -1,0 +1,89 @@
+*{
+    box-sizing: content-box;
+    color: rgb(42, 124, 111);
+}
+
+
+main{
+    
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    background-image:none;
+    
+    
+}
+
+
+
+p{
+   
+    font-size: 24px;
+    line-height: 32px;
+
+}
+
+  
+.section1{
+    background-color:rgb(189, 233, 226,0.8) ;
+    text-align: center;
+    padding: 50px;
+    
+}
+
+ h1{
+   font-size: 50px;
+   color: rgb(42, 124, 111) ;
+    margin: 0 0 50px 0;
+}
+
+.section2{
+    background-color:rgba(246, 250, 249, 0.8) ;
+    text-align: center;
+    padding: 50px;
+    
+}
+h2{
+    font-size: 38px;
+    color: rgb(42, 124, 111) ;
+     margin: 0 0 50px 0;
+ }
+  
+ .section3{
+    background-color:rgb(189, 233, 226,0.8) ;
+    text-align: center;
+    padding: 50px;
+    
+}
+ h3{
+    font-size: 20px;
+    color: rgb(42, 124, 111) ;
+     margin: 0 0 20px 0;
+ }
+ .aliment ul{
+      
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 20px;
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 10px 5px 5px #72948e;
+    border-radius: 2%;
+ }
+
+ .aliment ul li {
+    position: relative; /* Pour positionner le pseudo-élément */
+    padding-left: 20px; /* Ajout de l'espacement pour le texte */
+    margin-bottom: 30px; /* Espacement entre les éléments de liste */
+    text-align: left;
+}
+ .aliment ul li::before {
+    content: "•"; /* Caractère de la puce */
+    position: absolute;
+    left: 0;
+}
+ 
+
+ 

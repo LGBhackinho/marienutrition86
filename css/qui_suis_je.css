@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+}
+
+main{
+    
+    height: auto;
+    background-image: url(../images/fleurs.jpg); 
+    background-attachment: fixed;
+}
+.presentation{
+    height: 930px;
+   
+}
+
+.img_yoga{
+    width: 620px;
+    height: 930px;
+    position: relative;
+    transform: scaleX(-1);
+}
+.citation .cite1, .citation .cite2, .citation .cite3, .citation .cite4{
+    position: absolute;
+    width: 400px;
+    max-height: 200px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 40px;
+    padding: 10px;
+}
+
+.cite1{
+    position: absolute;
+    left: 700px;
+    top: 30px;
+   
+}
+
+.cite2{
+    position: absolute;
+    right: 70px;
+    top: 260px;
+}
+
+.cite3{
+    position: absolute;
+    left: 700px;
+    top: 500px;
+}
+
+.cite4{
+    position: absolute;
+    right: 70px;
+    top: 765px;
+}
+
+.story{
+    background-color: antiquewhite;
+    line-height: 40px;
+    padding: 40px 150px 60px 150px;
+}
+
+.story h1{
+    text-align: center;
+    color: rgb(42, 124, 111);
+    font-size: 40px;
+    padding-bottom: 30px;
+}
+.story p{
+    text-align:left;
+    color: rgb(42, 124, 111);
+    font-size: 24px;
+    margin: 40px;
+}
+.story h2{
+    text-align: center;
+    color: rgb(42, 124, 111);
+    font-size: 30px;
+    margin: 40px;
+}
+.story .auteur{
+    text-align:right;
+    color: rgb(42, 124, 111);
+    font-size: 24px;
+    margin: 40px;
+}

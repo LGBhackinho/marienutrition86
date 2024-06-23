@@ -1,0 +1,143 @@
+*{
+    box-sizing: border-box;
+}
+
+main{
+    height: 930px;
+    background-image: url(../images/nutrition.png);
+   
+    background-attachment: fixed;
+   
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel {
+    width: 100%;
+    max-height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-images {
+    display: flex;
+    transition: transform 1s ease;
+    width: 100%;
+}
+.carousel-images img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 600px) {
+    .prev, .next {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+.back_color{
+    background-color: #c6f0c6de;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 61px;
+}
+.back_color h1{
+    font-size: 61px;
+    color: #2A7C6F;
+    margin: 60px 0;
+}
+.back_color p{
+    font-size: 30px;
+    color: #2A7C6F;
+    margin: 20px auto;
+    
+}
+.calcul p{
+    display:inline;
+    padding: 0 10px;
+}
+.calcul a{
+    display:inline;
+    font-size: 30px;
+    color: #6d906d;
+    text-decoration:underline;
+    
+}
+.recette{
+   line-height: 35px;
+    height: 100px;
+    font-size: 30px;
+    color: #27693b;
+  
+}
+.texte{
+   
+    max-height: 100%;
+}
+
+
+.recette span{
+    font-weight:bold;
+    
+}
+.recette .lien_insta{
+    background: linear-gradient(to right, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    background-clip: text; /* Applique le dégradé en tant que remplissage pour le texte */
+    -webkit-text-fill-color: transparent; /* Rend le texte lui-même transparent pour que le dégradé soit visible */
+}
+.recette .lien-header{
+    text-decoration: underline;
+    color: #6d906d;
+}
+
+
+@media (max-width: 600px) {
+    .back_color {
+        padding: 10% 2%; /* Adjusted padding for smaller screens */
+    }
+    .back_color h1 {
+        font-size: 6vw; /* Adjusted font size for smaller screens */
+    }
+    .back_color p {
+        font-size: 3.5vw; /* Adjusted font size for smaller screens */
+    }
+    .calcul a {
+        font-size: 3.5vw; /* Adjusted font size for smaller screens */
+    }
+    .recette {
+        font-size: 3.5vw; /* Adjusted font size for smaller screens */
+        line-height: 4vw; /* Adjusted line height for smaller screens */
+    }
+}

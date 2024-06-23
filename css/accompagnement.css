@@ -1,0 +1,94 @@
+*{
+    box-sizing: border-box;
+}
+
+main{
+    
+    height: 100%;
+    background-image: url(../images/nutrition.png);
+    position:relative;
+    background-attachment: fixed;
+    
+}
+
+
+.back-color-a{
+    background-color: #c6f0c6de;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 61px;
+}
+ .accompagnement,h2{
+    margin-top: 20px;
+    position: relative;
+    color: #2A7C6F;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    font-size: 61px;
+}
+.accompagnement{
+    
+    height: 665px;
+   
+}
+.container-p ,.derouler_seance{
+    font-size: 30px;
+    color: #2A7C6F;
+    margin: 20px auto;
+    z-index: 1;
+    
+}
+.derouler_seance p{
+    margin-left: 50px;
+    margin-right: 50px;
+    
+    
+}
+.derouler_seance ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style-type: disc; /* Add bullets */
+    padding-left: 40px; /* Add padding to show bullets */
+}
+
+
+
+.derouler_seance li {
+    display: list-item; /* Ensure items are displayed as block elements */
+    margin-bottom: 10px; /* Add space between list items */
+}
+.etapes{
+    background-color: #e9d1d0d3;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    z-index: 1;
+    border-radius: 50% 20% / 10% 40%;
+    box-shadow: 10px 5px 5px #72948e;
+    align-self: center; 
+    display: flex;
+    align-items: center;
+}
+.etape1{
+    left: 27%;
+    top: 20%;
+   
+}
+.etape2{
+    left: 58%;
+    top:20%;
+}
+.etape3{
+    left: 27%;
+    top: 60%;
+}
+.etape4{
+    left: 58%;
+    top: 60%;
+}

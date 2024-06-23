@@ -1,0 +1,133 @@
+*{
+    box-sizing: content-box;
+}
+
+
+main{
+    /* height: auto;
+    display:flex;
+    flex-direction: column;*/
+    background-image:none; 
+}
+.block1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+}
+.contact{
+    
+    display: flex;   
+}
+
+.title1H1{
+    width: 100%;
+    text-align: center;
+    background-color: #40BCA8;
+    height: 350px;
+    font-size: 69px;
+    color: #2A7C6F;
+}
+.title1H1 h1,.title2H1 h1{
+    margin-top: 10%;
+}
+
+
+.title2H1{
+    width: 100%;
+    text-align: center;
+    height: 350px;
+    font-size: 69px;
+    color: #2A7C6F;
+}
+.coordonee{
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    
+}
+
+.mail,.telephone{
+    display: flex;
+    margin-left: 10px;
+}
+
+.align_lien_tel,.align_lien_mail{
+    font-size: 24px;
+    margin: auto 50px;
+}
+.align_lien_tel span,.align_lien_mail span{
+    margin-left: 30px;
+    color:#2A7C6F;
+}
+
+
+.logo2{
+    width: 120px;
+    height: 130px;
+    position: absolute;
+    right: 46%;
+    top: 290px;
+    
+    
+}
+
+/* .tarif{
+    display: flex;
+    
+    
+} */
+.sectionTarif{
+    
+    display: flex;
+}
+
+.tarif img{
+    width: 129px;
+    height: 184px;
+    margin: auto 30px;
+}
+.tarif{
+    width: 100%;
+    height: 350px;
+    background-color: #BDE9E2;
+    display: flex;
+
+}
+
+.tarif_text {
+    display:flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tarif_text span{
+    font-weight:bold ;
+  }
+
+  .tarif_text ul{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    max-width: 500px;
+    margin: 20px auto;
+    
+    
+ }
+
+ .tarif_text ul li {
+    position: relative; /* Pour positionner le pseudo-élément */
+    padding-left: 20px; /* Ajout de l'espacement pour le texte */
+    margin-bottom: 30px; /* Espacement entre les éléments de liste */
+    text-align: left;
+    font-size: 25px;
+    color:#2A7C6F;
+}
+.tarif_text ul li::before {
+    content: "•"; /* Caractère de la puce */
+    position: absolute;
+    left: 0;
+}
