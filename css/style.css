@@ -108,7 +108,40 @@
     
   }
 
-  
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px; /* Ajoutez du padding pour de l'espace autour du contenu */
+}
+
+.header-top .logo {
+    margin: 0 auto; /* Centrer le logo */
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons a,
+.auth-buttons button {
+    padding: 0 10px;
+    font-size: 21px;
+    color: #7dc07d;
+    text-decoration: none;
+    text-align: center;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.auth-buttons a:hover,
+.auth-buttons button:hover {
+    text-decoration: underline;
+}
+
 
   p cite{
     font-family: "Sacramento", cursive;

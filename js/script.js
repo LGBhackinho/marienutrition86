@@ -89,6 +89,32 @@ document.addEventListener('DOMContentLoaded', function() {
         scriptElement.src = jsFile;
         document.body.appendChild(scriptElement);
     }
+//////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////// GEstion des log
+
+const loginBtn = document.getElementById("login-btn");
+const signupBtn = document.getElementById("signup-btn");
+const logoutBtn = document.getElementById("logout-btn");
+
+// Simulate the login state of the user
+const isLoggedIn = false; // Change this to true if the user is logged in
+
+if (isLoggedIn) {
+    loginBtn.style.display = "none";
+    signupBtn.style.display = "none";
+    logoutBtn.style.display = "block";
+} else {
+    loginBtn.style.display = "block";
+    signupBtn.style.display = "block";
+    logoutBtn.style.display = "none";
+}
+
+logoutBtn.addEventListener("click", function() {
+    // Logic to handle logout
+    alert("Déconnecté");
+    // After logout, reload the page or redirect to the homepage
+    location.reload();
+});
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////// POUR LA PAGE BLOG /////////////////////////////////////////////////////////

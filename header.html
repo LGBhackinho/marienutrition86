@@ -1,9 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Votre titre ici</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
 
 <header id="header">
-    <img class="logo" src="images/logo.jpg" alt="logo healthy"><br>
-    <!-- Login a faire avec petit logo -->
-    <!-- Formulaire Recherche  -->
+    <div class="header-top">
+        <img class="logo" src="images/logo.jpg" alt="logo healthy">
+        <div class="auth-buttons">
+            <?php
+            session_start();
 
+            // Vérifier si l'utilisateur est connecté
+            $logged_in = isset($_SESSION['loggedin'] );
+
+            if ($logged_in) {
+                // Utilisateur connecté, afficher le bouton de déconnexion
+                echo '<a id="logout-btn" class="lien-header" href="/siteMarie/php/logout.php">Déconnexion</a>';
+            } else {
+                // Utilisateur non connecté, afficher les boutons de login et inscription
+                echo '<a id="login-btn" class="lien-header" href="html/login.html">Login</a>';
+                echo '<a id="signup-btn" class="lien-header" href="html/inscription.html">Inscription</a>';
+            }
+            ?>
+        </div>
+    </div>
+    <br>
     <nav>
         <ul>
             <li><a class="lien-header" href="#" onclick="loadContent('acceuil.html', 'acceuil'); return false;">Accueil</a></li>
@@ -20,22 +45,16 @@
                     <li> <a class="lien-header"  href="#" onclick="loadContent('fibromyalgie.html'); return false;">Fibromyalgie</a></li>
                     <li>|</li>
                     <li> <a class="lien-header"  href="#" onclick="loadContent('sii.html'); return false;">Sii</a></li>
-                    
                 </ul>
-            </div>
-              
+              </div>
             </li>
             <li>|</li>
             <li> <a class="lien-header" href="" onclick="loadContent('tarif_et_contact.html'); return false;">Tarif et Contact</a></li>
             <li>|</li>
             <li> <a class="lien-header" href="" onclick="loadContent('blog.html'); return false;">Blog</a></li>  
         </ul>
-        
     </nav><br>
-    <!-- <form action="#">
-        <img src="#" alt="logo de login">
-        <label for="log">Log in</label>
-        <input type="text" style="min-width: 2px;max-width: 100px;"><br><br>
-        <input type="search" name="search" placeholder="search"style="width: auto;max-width: 100px;">
-    </form><br> -->
 </header>
+
+</body>
+</html>

@@ -35,13 +35,14 @@ a:hover {
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
+  justify-content: flex-start;
   align-items: center; }
 
 .inner {
   padding: 20px;
   background: #fff;
   max-width: 850px;
-  margin: auto;
+  margin: 35px;
   display: flex;
 border-radius: 0% 25% 26% 13%;
 }
