@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Suivi de Poids</title>
+    <style>
+        .cont-calculateur {
+            max-width: 300px;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            position: relative;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        label {
+            flex: 1;
+            margin-right: 10px;
+        }
+        input[type="text"], input[type="number"], select {
+            flex: 1.5;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .readonly {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .details, .image-selection {
+            display: none;
+            position: absolute;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        .image-selection img {
+            width: 100px;
+            cursor: pointer;
+        }
+        .dropdown-container {
+            display: flex;
+            align-items: center;
+            flex: 1.5;
+        }
+        .dropdown-icon {
+            padding: 8px;
+            background: #ccc;
+            cursor: pointer;
+        }
+        #weightChartContainer {
+            max-width: 600px;
+            margin-top: 20px;
+        }
+    </style>
+    <!-- Inclure Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Inclure date-fns et chartjs-adapter-date-fns -->
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns/locale/fr/index.js"></script>
+    <script>
+        document.addEventListener("click", function(event) {
+            var details = document.getElementById("details");
+            var images = document.getElementById("images");
+            if (!details.contains(event.target) && !document.getElementById("toggleDetailsButton").contains(event.target)) {
+                details.style.display = "none";
+            }
+            if (!images.contains(event.target) && !document.getElementById("dropdownIcon").contains(event.target)) {
+                images.style.display = "none";
+            }
+        });
+
+        function toggleDetails(button) {
+            var details = document.getElementById("details");
+            var rect = button.getBoundingClientRect();
+            details.style.top = rect.top + window.scrollY + "px";
+            details.style.left = rect.left + window.scrollX + button.offsetWidth + "px";
+            details.style.display = details.style.display === "none" ? "block" : "none";
+        }
+
+        function toggleImages(icon) {
+            var images = document.getElementById("images");
+            var rect = icon.getBoundingClientRect();
+            images.style.top = rect.top + window.scrollY + "px";
+            images.style.left = rect.left + window.scrollX + icon.offsetWidth + "px";
+            images.style.display = images.style.display === "none" ? "block" : "none";
+        }
+
+        function selectBodyFatPercentage(value) {
+            document.getElementById("tauxMasseGrasse").value = value;
+            document.getElementById("images").style.display = "none";
+        }
+
+        window.onload = function() {
+            var ctx = document.getElementById('weightChart').getContext('2d');
+            var weightChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01'], // Simulated dates
+                    datasets: [{
+                        label: 'Poids (kg)',
+                        data: [78, 75, 73, 71, 70], // Simulated weights
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: true,
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'month'
+                            },
+                            adapters: {
+                                date: {
+                                    locale: dateFns.locale.fr
+                                }
+                            }
+                        },
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+<div class="cont-calculateur">
+    <h1>Formulaire de Suivi de Poids</h1>
+    <form>
+        <div class="form-group">
+            <label for="poidsInitial">Poids Initial (kg):</label>
+            <input type="text" id="poidsInitial" class="readonly" readonly>
+        </div>
+        <div class="form-group">
+            <label for="imc">IMC:</label>
+            <input type="text" id="imc" class="readonly" readonly>
+        </div>
+        <div class="form-group">
+            <label for="depenseCal">Dépense Calorique Journalière (kcal):</label>
+            <input type="text" id="depenseCal" class="readonly" readonly>
+        </div>
+        <div class="form-group">
+            <label for="tauxMasseGrasse">Taux de Masse Grasse (%):</label>
+            <div class="dropdown-container">
+                <input type="number" id="tauxMasseGrasse" class="readonly" readonly>
+                <div id="dropdownIcon" class="dropdown-icon" onclick="toggleImages(this)">▼</div>
+            </div>
+        </div>
+        <div id="images" class="image-selection">
+            <img src="img1.jpg" alt="10%" onclick="selectBodyFatPercentage(10)">
+            <img src="img2.jpg" alt="20%" onclick="selectBodyFatPercentage(20)">
+            <img src="img3.jpg" alt="30%" onclick="selectBodyFatPercentage(30)">
+            <!-- Ajoutez plus d'images si nécessaire -->
+        </div>
+        <div class="form-group">
+            <label for="objectifCal">Objectif Cal/j (kcal):</label>
+            <input type="text" id="objectifCal" class="readonly" readonly>
+            <button type="button" id="toggleDetailsButton" onclick="toggleDetails(this)" style="margin-left: 10px;">Détails</button>
+        </div>
+        <div id="details" class="details">
+            <div class="form-group">
+                <label for="glucides">Glucides / J (g):</label>
+                <input type="text" id="glucides" class="readonly" readonly>
+            </div>
+            <div class="form-group">
+                <label for="lipides">Lipides / J (g):</label>
+                <input type="text" id="lipides" class="readonly" readonly>
+            </div>
+            <div class="form-group">
+                <label for="proteines">Protéines / J (g):</label>
+                <input type="text" id="proteines" class="readonly" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="poidsAtteindre">Poids à Atteindre (kg):</label>
+            <input type="number" id="poidsAtteindre">
+        </div>
+    </form>
+</div>
+<div id="weightChartContainer">
+    <canvas id="weightChart"></canvas>
+</div>
+</body>
+</html>

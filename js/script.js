@@ -89,6 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
         scriptElement.src = jsFile;
         document.body.appendChild(scriptElement);
     }
+
+
 //////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////// GEstion des log
 
