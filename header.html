@@ -13,19 +13,21 @@
         <div class="auth-buttons">
             <?php
             session_start();
-
+            
             // Vérifier si l'utilisateur est connecté
-            $logged_in = isset($_SESSION['loggedin'] );
-
+            $logged_in = isset($_SESSION['loggedin']);
+            
             if ($logged_in) {
                 // Utilisateur connecté, afficher le bouton de déconnexion
-                echo '<a id="logout-btn" class="lien-header" href="/siteMarie/marienutrition86/php/logout.php">Déconnexion</a>';
+                echo '<a class="lien-header" href="#" onclick="loadContent(\'profil.html\', \'Profil\'); return false;">Profil</a>';
+                echo '<a id="logout-btn" class="lien-header" href="/siteMarie/php/logout.php">Déconnexion</a>';
             } else {
                 // Utilisateur non connecté, afficher les boutons de login et inscription
                 echo '<a id="login-btn" class="lien-header" href="html/login.html">Login</a>';
                 echo '<a id="signup-btn" class="lien-header" href="html/inscription.html">Inscription</a>';
             }
             ?>
+            
         </div>
     </div>
     <br>
@@ -33,13 +35,13 @@
         <ul>
             <li><a class="lien-header" href="#" onclick="loadContent('acceuil.html', 'acceuil'); return false;">Accueil</a></li>
             <li>|</li>  
-            <li><a class="lien-header" href="#" onclick="loadContent('qui_suis_je.html', 'Qui suis je'); return false;">Qui suis je</a></li>
+            <li><a class="lien-header" href="#" onclick="loadContent('qui_suis_je.html', 'Qui suis je'); return false;">Qui suis-je</a></li>
             <li>|</li> 
             <li> <a class="lien-header" href="#" onclick="loadContent('alimentation.html', 'nutrition'); return false;">Alimentation</a></li>
             <li>|</li>
             <li> <a class="lien-header" href="" onclick="loadContent('accompagnement.html'); return false;">Accompagnement</a></li>
             <li>|</li>
-            <li class="menuBas"> <button class="menuBtn">Trouble Chronique<i class="fa fa-caret-down"></i></button>
+            <li class="menuBas"> <button class="menuBtn">Troubles Chroniques<i class="fa fa-caret-down"></i></button>
               <div class="sousMenu">
                 <ul>
                     <li> <a class="lien-header"  href="#" onclick="loadContent('fibromyalgie.html'); return false;">Fibromyalgie</a></li>

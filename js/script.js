@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     document.getElementById('main').innerHTML = data;
                     loadPageSpecificCSS(page);
-                    if ((page === "recette.html" ) || (page === "alimentation.html")|| (page === "blog.html")){
+                    if ((page === "recette.html" ) || (page === "alimentation.html")|| (page === "blog.html")|| (page === "calculateur.html")|| (page === "profil.html")){
                         loadPageSpecificJS(page);
                     }
                     

@@ -9,6 +9,6 @@ session_unset();
 session_destroy();
 
 // Redirige l'utilisateur vers la page d'accueil ou une autre page après déconnexion
-header("Location: /siteMarie/marienutrition86");
+header("Location: /siteMarie/");
 exit();
 ?>

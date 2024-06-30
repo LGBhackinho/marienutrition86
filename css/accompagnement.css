@@ -22,6 +22,7 @@ main{
 }
  .accompagnement,h2{
     margin-top: 20px;
+    margin-bottom: 40px;
     position: relative;
     color: #2A7C6F;
     width: 100%;

@@ -25,7 +25,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Requête SQL pour récupérer l'utilisateur par nom
-$stmt = $conn->prepare("SELECT id, password FROM users WHERE prenom = ?");
+$stmt = $conn->prepare("SELECT id, password, prenom, nom FROM users WHERE prenom = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -40,10 +40,13 @@ if ($result->num_rows > 0) {
         session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['userid'] = $row['id']; // Stocker l'ID de l'utilisateur dans la session
+        $_SESSION['prenom'] = $row['prenom'];
+        $_SESSION['nom'] = $row['nom'];
+
         echo json_encode(['success' => true]);
     } else {
         // Mot de passe incorrect
-        echo json_encode(['success' => false, 'message' => 'Mot de passe incorrects.']);
+        echo json_encode(['success' => false, 'message' => 'Mot de passe incorrect.']);
     }
 } else {
     // Utilisateur non trouvé
