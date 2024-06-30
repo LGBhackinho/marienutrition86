@@ -21,12 +21,12 @@ if ($conn->connect_error) {
 }
 
 // Initialisation des variables pour récupérer les données du formulaire
-$username = $_POST['username'];
+$email = $_POST['email'];
 $password = $_POST['password'];
 
 // Requête SQL pour récupérer l'utilisateur par nom
-$stmt = $conn->prepare("SELECT id, password, prenom, nom FROM users WHERE prenom = ?");
-$stmt->bind_param("s", $username);
+$stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+$stmt->bind_param("s", $email);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -42,6 +42,14 @@ if ($result->num_rows > 0) {
         $_SESSION['userid'] = $row['id']; // Stocker l'ID de l'utilisateur dans la session
         $_SESSION['prenom'] = $row['prenom'];
         $_SESSION['nom'] = $row['nom'];
+        $_SESSION['age'] = $row['age'];
+        $_SESSION['poids'] = $row['poids'];
+        $_SESSION['adresse'] = $row['adresse'];
+        $_SESSION['telephone'] = $row['telephone'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['genre'] = $row['genre'];
+        $_SESSION['activite'] = $row['activite'];
+        $_SESSION['taille'] = $row['taille'];
 
         echo json_encode(['success' => true]);
     } else {

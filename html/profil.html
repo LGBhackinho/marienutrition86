@@ -12,59 +12,72 @@
         <form>
             <div class="form-group">
                 <label for="prenom">Prénom :</label>
-                <?php echo '<input type="text" name="prenom" placeholder="Prénom" value="' . $_SESSION['prenom'] . '" class="form-control">'; ?>
-                <label for="poidsInitial">Nom :</label>
-                <input type="text" name="nom" placeholder="Nom" class="form-control" >
+                <?php 
+                echo '<input type="text" name="prenom" placeholder="Prénom" value="' . (isset($_SESSION['prenom']) ? $_SESSION['prenom'] : '') . '" class="form-control">'; 
+                ?>
+                <label for="nom">Nom :</label>
+                <?php 
+                echo '<input type="text" name="nom" placeholder="Nom" value="' . (isset($_SESSION['nom']) ? $_SESSION['nom'] : '') . '" class="form-control">'; 
+                ?>
             </div>
             <div class="form-group">
                 <label for="adresse">Adresse :</label>
-                <input type="text" name="adresse" placeholder="Adresse" class="form-control" >
+                <?php 
+                echo '<input type="text" name="adresse" placeholder="Adresse" value="' . (isset($_SESSION['adresse']) ? $_SESSION['adresse'] : '') . '" class="form-control">'; 
+                ?>
             </div>
             <div class="form-group">
                 <label for="telephone">Téléphone :</label>
-                <input type="text" name="telephone" placeholder="Téléphone" class="form-control" >
+                <?php 
+                echo '<input type="text" name="telephone" placeholder="Téléphone" value="' . (isset($_SESSION['telephone']) ? $_SESSION['telephone'] : '') . '" class="form-control">'; 
+                ?>
             </div>
             <div class="form-group">
                 <label for="poidsInitial">Poids Initial (kg):</label>
-                <input type="number" id="poidsInitial"  >
+                <?php 
+                echo '<input type="number" name="poidsInitial" id="poidsInitial" value="' . (isset($_SESSION['poids']) ? $_SESSION['poids'] : '') . '" class="form-control">'; 
+                ?>
             </div>
             <div class="form-group">
                 <label for="taille">Taille (cm):</label>
-                <input type="number" id="taille" >
+                <?php 
+                echo '<input type="number" name="taille" id="taille" value="' . (isset($_SESSION['taille']) ? $_SESSION['taille'] : '') . '" class="form-control">'; 
+                ?>
             </div>
             <div class="form-group">
-                <label for="age">age :</label>
-                <input type="number" id="age" >
+                <label for="age">Age :</label>
+                <?php 
+                echo '<input type="number" name="age" id="age" value="' . (isset($_SESSION['age']) ? $_SESSION['age'] : '') . '" class="form-control">'; 
+                ?>
             </div>
-           
             <div class="form-group">
                 <label for="activite">Activité :</label>
-                <select name="activite" id="activite" class="form-control" required>
-                    <option value="" disabled selected>Activité</option>
-                    <option value="1">Peu ou pas d’exercice/semaine</option>
-                    <option value="1.15">1-2 fois / semaine</option>
-                    <option value="1.2">3-5 fois / semaine</option>
-                    <option value="1.6">6-7 fois / semaine</option>
-                </select>
+                <?php 
+                $activite = isset($_SESSION['activite']) ? $_SESSION['activite'] : '';
+                echo '<select name="activite" id="activite" class="form-control" required>
+                    <option value="" disabled' . ($activite === '' ? ' selected' : '') . '>Activité</option>
+                    <option value="1"' . ($activite == '1' ? ' selected' : '') . '>Peu ou pas d’exercice/semaine</option>
+                    <option value="1.15"' . ($activite == '1.15' ? ' selected' : '') . '>1-2 fois / semaine</option>
+                    <option value="1.2"' . ($activite == '1.2' ? ' selected' : '') . '>3-5 fois / semaine</option>
+                    <option value="1.6"' . ($activite == '1.6' ? ' selected' : '') . '>6-7 fois / semaine</option>
+                </select>'; 
+                ?>
             </div>
-            
             <div class="form-group">
                 <label for="imc">IMC:</label>
-                <input type="text" id="imc" class="readonly" readonly>
+                <?php echo '<input type="text" id="imc" class="readonly" readonly>'; ?>
             </div>
             <div class="form-group">
                 <label for="depenseCal">Dépense Calorique Journalière (kcal):</label>
-                <input type="text" id="depenseCal" class="readonly" readonly>
+                <?php echo '<input type="text" id="depenseCal" class="readonly" readonly>'; ?>
             </div>
             <div class="form-group">
                 <label for="tauxMasseGrasse">Taux de Masse Grasse (%):</label>
                 <div class="form-group-tx">
-                    <input type="number" id="tauxMasseGrasse" class="readonly" readonly>
+                    <?php echo '<input type="number" id="tauxMasseGrasse" class="readonly" readonly>'; ?>
                     <div id="dropdownIcon" class="dropdown-icon" onclick="toggleImages(this)">▼</div>
                 </div>
-            
             </div>
-            
             <div id="images" class="image-selection">
                 <img src="images/h18.png" alt="10%" onclick="selectBodyFatPercentage(18)">
                 <img src="images/h18-25.png" alt="20%" onclick="selectBodyFatPercentage(21)">
@@ -74,39 +87,51 @@
             </div>
             <div class="form-group">
                 <label for="objectifCal">Objectif Cal/j (kcal):</label>
-                <input type="text" id="objectifCal" class="readonly" readonly>
+                <?php echo '<input type="text" id="objectifCal" class="readonly" readonly>'; ?>
                 <button type="button" id="toggleDetailsButton" onclick="toggleDetails(this)" style="margin-left: 10px;">Détails</button>
             </div>
             <div id="details" class="details">
                 <div class="form-group">
                     <label for="glucides">Glucides / J (g):</label>
-                    <input type="text" id="glucides" class="readonly" readonly>
+                    <?php 
+                    echo '<input type="text" id="glucides" value="' . (isset($_SESSION['glucides']) ? $_SESSION['glucides'] : '') . '" class="readonly" readonly>'; 
+                    ?>
                 </div>
                 <div class="form-group">
                     <label for="lipides">Lipides / J (g):</label>
-                    <input type="text" id="lipides" class="readonly" readonly>
+                    <?php 
+                    echo '<input type="text" id="lipides" value="' . (isset($_SESSION['lipides']) ? $_SESSION['lipides'] : '') . '" class="readonly" readonly>'; 
+                    ?>
                 </div>
                 <div class="form-group">
                     <label for="proteines">Protéines / J (g):</label>
-                    <input type="text" id="proteines" class="readonly" readonly>
+                    <?php 
+                    echo '<input type="text" id="proteines" value="' . (isset($_SESSION['proteines']) ? $_SESSION['proteines'] : '') . '" class="readonly" readonly>'; 
+                    ?>
                 </div>
             </div>
             <div class="form-group">
                 <label for="poidsAtteindre">Poids à Atteindre (kg):</label>
-                <input type="number" id="poidsAtteindre">
+                <?php 
+                echo '<input type="number" id="poidsAtteindre" value="' . (isset($_SESSION['poidsAtteindre']) ? $_SESSION['poidsAtteindre'] : '') . '" class="form-control">'; 
+                ?>
             </div>
             <div class="form-group">
                 <label for="email">Adresse email :</label>
-                <input type="text" name="email" id="email" placeholder="Email" class="form-control" required>
+                <?php 
+                echo '<input type="text" name="email" id="email" placeholder="Email" value="' . (isset($_SESSION['email']) ? $_SESSION['email'] : '') . '" class="form-control" required>'; 
+                ?>
                 <i class="zmdi zmdi-email"></i>
                 <span id="emailError" style="color: red; display: none;">Adresse e-mail non valide.</span>
             </div>
             <br>
             <div class="form-group">
                 <input type="button" id="calculerButton" value="Calculer">
-                <input type="button" id="mettreAJourButton" value="Metre à jour">
+                <input type="button" id="mettreAJourButton" value="Mettre à jour">
             </div>
         </form>
+        
+        
     </div>
     <div id="weightChartContainer">
         <canvas id="weightChart"></canvas>
