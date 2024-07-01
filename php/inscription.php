@@ -57,11 +57,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
 
         // Stockage des informations de l'utilisateur dans des variables de session
-        $_SESSION['prenom'] = $prenom;
-        $_SESSION['nom'] = $nom;
-        $_SESSION['email'] = $email;
         $_SESSION['loggedin'] = true;
         $_SESSION['userid'] = $row['id']; // Stocker l'ID de l'utilisateur dans la session
+        $_SESSION['prenom'] = $row['prenom'];
+        $_SESSION['nom'] = $row['nom'];
+        $_SESSION['age'] = $row['age'];
+        $_SESSION['poids'] = $row['poids'];
+        $_SESSION['adresse'] = $row['adresse'];
+        $_SESSION['telephone'] = $row['telephone'];
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['genre'] = $row['genre'];
+        $_SESSION['activite'] = $row['activite'];
+        $_SESSION['taille'] = $row['taille'];
         // Redirection vers la page d'accueil après inscription réussie
         header("Location: ../index.html");
         exit();

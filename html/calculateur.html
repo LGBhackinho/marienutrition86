@@ -4,35 +4,70 @@
             <h1>Calculateur de calorie individuel</h1>
             <br>
             <form>
+                <?php
+            session_start();
+            
+            // Vérifier si l'utilisateur est connecté
+            $logged_in = isset($_SESSION['loggedin']);
+            
+            $poids = isset($_SESSION['poids']) ? $_SESSION['poids'] : null;
+            $taille = isset($_SESSION['taille']) ? $_SESSION['taille'] : null;
+            $age = isset($_SESSION['age']) ? $_SESSION['age'] : null;
+            $genre = isset($_SESSION['genre']) ? $_SESSION['genre'] : null;
+            $activite = isset($_SESSION['activite']) ? $_SESSION['activite'] : null;
+
+            
+            
+            ?>
+            <?php
+                     
+            echo '<div class="form-group">
+                <label for="poidsInitial">Poids Initial (kg):</label>
+                <input type="number" id="poidsInitial" name="poidsInitial" value="' . (isset($_SESSION['poids']) ? $_SESSION['poids'] : '') . '" required>
+            </div>';
+            ?>
+            
+               
+
                 <div class="form-group">
-                    <label for="poidsInitial">Poids Initial (kg):</label>
-                    <input type="number" id="poidsInitial"  >
-                </div>
-                <div class="form-group">
-                    <label for="taille">Taille (cm):</label>
-                    <input type="number" id="taille" >
+                    <?php
+                    if (!$logged_in) {
+                       
+                        echo '<label for="taille">Taille (cm):</label>
+                        <input type="number" id="taille"required >
+                    
+                    
                 </div>
                 <div class="form-group">
                     <label for="age">age :</label>
-                    <input type="number" id="age" >
+                        <input type="number" id="age" required >
+                    
+                    
                 </div>
                 <div class="form-group">
                     <label for="genre">Genre :</label>
-                    <select name="genre" id="genre">
-                        <option value="">selection</option>
-                        <option value="FEMME">FEMME</option>
-                        <option value="HOMME">HOMME</option>
-                    </select>
+                        <select name="genre" id="genre" required>
+                            <option disabled selected>selection</option>
+                            <option value="FEMME">FEMME</option>
+                            <option value="HOMME">HOMME</option>
+                        </select>
+                        
+                    
+                    
                 </div>
                 <div class="form-group">
                     <label for="activite">Activité :</label>
-                    <select name="activite" id="activite" class="form-control" required>
-                        <option value="" disabled selected>Activité</option>
-                        <option value="1">Peu ou pas d’exercice/semaine</option>
-                        <option value="1.15">1-2 fois / semaine</option>
-                        <option value="1.2">3-5 fois / semaine</option>
-                        <option value="1.6">6-7 fois / semaine</option>
-                    </select>
+                        <select name="activite" id="activite" class="form-control" required>
+                            <option  disabled selected>Activité</option>
+                            <option value="1">Peu ou pas d’exercice/semaine</option>
+                            <option value="1.15">1-2 fois / semaine</option>
+                            <option value="1.2">3-5 fois / semaine</option>
+                            <option value="1.6">6-7 fois / semaine</option>
+                        </select>';
+                        
+                    } 
+                    ?>
+                    
                 </div>
                 
                 <div class="form-group">
@@ -79,11 +114,43 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="poidsAtteindre">Poids à Atteindre (kg):</label>
-                    <input type="number" id="poidsAtteindre">
+                <input type="hidden" id="taille" value="<?php echo $taille; ?>">
+                <input type="hidden" id="age" value="<?php echo $age; ?>">
+                <input type="hidden" id="genre" value="<?php echo $genre; ?>">
+                <input type="hidden" id="activite" value="<?php echo $activite; ?>">
+                    <?php
+                    if ($logged_in) {
+                        
+                        echo '<label for="poidsAtteindre">Poids à Atteindre (kg):</label>
+                        <input type="number" id="poidsAtteindre" required>';
+                    }
+                    ?>
+                    
                 </div>
                 <div class="form-group">
-                    <input type="button" id="calculerButton" value="Calculer">
+                    
+                    <?php
+
+                    
+if ($logged_in) {
+    $poids = isset($_SESSION['poids']) ? $_SESSION['poids'] : null;
+            $taille = isset($_SESSION['taille']) ? $_SESSION['taille'] : null;
+            $age = isset($_SESSION['age']) ? $_SESSION['age'] : null;
+            $genre = isset($_SESSION['genre']) ? $_SESSION['genre'] : null;
+            $activite = isset($_SESSION['activite']) ? $_SESSION['activite'] : null;
+    
+            echo '<input type="button" id="calculerButtonLog" onclick="calculLog(' . $poids . ', ' . $taille . ', ' . $age . ', \'' . $genre . '\', ' . $activite . ')" value="Calcul calorie">';
+    echo '<input type="button" id="btnEnregistrer" value="Enregistrer">';
+    echo '<input type="button" id="btnInfoNurition" value="Info Nutritionnelle">';
+} else {
+    echo '<input type="button" id="calculerButton" value="Calculer">';
+}
+
+
+?>
+
+
+                    
                 </div>
             </form>
         </div>
