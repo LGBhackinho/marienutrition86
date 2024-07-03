@@ -48,8 +48,8 @@
                     <label for="genre">Genre :</label>
                         <select name="genre" id="genre" required>
                             <option disabled selected>selection</option>
-                            <option value="FEMME">FEMME</option>
-                            <option value="HOMME">HOMME</option>
+                            <option value="femme">FEMME</option>
+                            <option value="homme">HOMME</option>
                         </select>
                         
                     
@@ -143,7 +143,7 @@ if ($logged_in) {
     echo '<input type="button" id="btnEnregistrer" value="Enregistrer">';
     echo '<input type="button" id="btnInfoNurition" value="Info Nutritionnelle">';
 } else {
-    echo '<input type="button" id="calculerButton" value="Calculer">';
+    echo '<input type="button" id="calculerButton" onclick="calcul()" value="Calculer">';
 }
 
 

@@ -15,9 +15,7 @@ document.addEventListener("click", function (event) {
   }
 });
 
-document
-  .getElementById("calculerButton")
-  .addEventListener("click", function () {
+ function calcul () {
     // Récupérer les valeurs du formulaire
     let poids = parseFloat(document.getElementById("poidsInitial").value);
     let taille = parseFloat(document.getElementById("taille").value);
@@ -30,13 +28,14 @@ document
     document.getElementById("imc").value = imc.toFixed(2);
 
     // Calculer la dépense calorique journalière
-    let depenseCal;
+    let depenseCal = 5;
     const coefProteine = 1.8;
     const coefLipide = 0.8;
     if (genre === "femme") {
       depenseCal = 655.1 + 9.56 * poids + 1.85 * taille - 4.67 * age;
     } else if (genre === "homme") {
       depenseCal = 66.5 + 13.75 * poids + 5 * taille - 6.77 * age;
+      console.log(depenseCal)
     }
     depenseCal *= activite; // Ajuster en fonction de l'activité physique
     document.getElementById("objectifCal").value = (0.75 * depenseCal).toFixed(
@@ -60,7 +59,7 @@ document
         (coefLipide * 0.75 * poids).toFixed(2) * 9) /
       4
     ).toFixed(2);
-  });
+  };
 
 function calculLog(poids, taille, age, genre, activite) {
   // Récupérer les valeurs du formulaire
