@@ -12,11 +12,21 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$response = [
+    'success' => false,
+    'errors' => [
+        'email' => '',
+        'password' => '',
+        'general' => ''
+    ]
+];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
     $age = $_POST['age'];
     $poids = $_POST['poids'];
+    $taille = $_POST['taille'];
     $adresse = $_POST['adresse'];
     $telephone = $_POST['telephone'];
     $email = $_POST['email'];
@@ -27,57 +37,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validation du mot de passe
     if ($password != $confirm_password) {
-        echo "Les mots de passe ne correspondent pas.";
-        exit();
+        $response['errors']['password'] = "Les mots de passe ne correspondent pas.";
     }
 
     // Validation de l'email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Adresse e-mail non valide.";
-        exit();
-    }
-
-    // Validation de l'email avec regex pour structure
-    $email_regex = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
-    if (!preg_match($email_regex, $email)) {
-        echo "Structure de l'adresse e-mail non valide.";
-        exit();
-    }
-
-    // Hash du mot de passe
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    // Préparer et lier
-    $stmt = $conn->prepare("INSERT INTO users (prenom, nom, age, poids, adresse, telephone, email, genre, activite, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssidsissss", $prenom, $nom, $age, $poids, $adresse, $telephone, $email, $genre, $activite, $hashed_password);
-
-    // Exécuter la requête
-    if ($stmt->execute()) {
-        // Démarrage de la session
-        session_start();
-
-        // Stockage des informations de l'utilisateur dans des variables de session
-        $_SESSION['loggedin'] = true;
-        $_SESSION['userid'] = $row['id']; // Stocker l'ID de l'utilisateur dans la session
-        $_SESSION['prenom'] = $row['prenom'];
-        $_SESSION['nom'] = $row['nom'];
-        $_SESSION['age'] = $row['age'];
-        $_SESSION['poids'] = $row['poids'];
-        $_SESSION['adresse'] = $row['adresse'];
-        $_SESSION['telephone'] = $row['telephone'];
-        $_SESSION['email'] = $row['email'];
-        $_SESSION['genre'] = $row['genre'];
-        $_SESSION['activite'] = $row['activite'];
-        $_SESSION['taille'] = $row['taille'];
-        // Redirection vers la page d'accueil après inscription réussie
-        header("Location: ../index.html");
-        exit();
+        $response['errors']['email'] = "Adresse e-mail non valide.";
     } else {
-        echo "Erreur: " . $stmt->error;
+        // Vérification si l'email existe déjà dans la base de données
+        $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $response['errors']['email'] = "Cet e-mail est déjà utilisé. Veuillez en choisir un autre.";
+        }
+
+        $stmt->close();
     }
 
-    $stmt->close();
+    if (empty($response['errors']['email']) && empty($response['errors']['password'])) {
+        // Hash du mot de passe
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        // Préparer et lier
+        $stmt = $conn->prepare("INSERT INTO users (prenom, nom, age, poids, taille, adresse, telephone, email, genre, activite, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssidisissss", $prenom, $nom, $age, $poids, $taille, $adresse, $telephone, $email, $genre, $activite, $hashed_password);
+
+        // Exécuter la requête
+        if ($stmt->execute()) {
+            // Récupérer l'ID de l'utilisateur inséré
+            $userid = $stmt->insert_id;
+
+            // Démarrage de la session
+            session_start();
+
+            // Stockage des informations de l'utilisateur dans des variables de session
+            $_SESSION['loggedin'] = true;
+            $_SESSION['userid'] = $userid;
+            $_SESSION['prenom'] = $prenom;
+            $_SESSION['nom'] = $nom;
+            $_SESSION['age'] = $age;
+            $_SESSION['poids'] = $poids;
+            $_SESSION['adresse'] = $adresse;
+            $_SESSION['telephone'] = $telephone;
+            $_SESSION['email'] = $email;
+            $_SESSION['genre'] = $genre;
+            $_SESSION['activite'] = $activite;
+            $_SESSION['taille'] = $taille;
+
+            $response['success'] = true;
+        } else {
+            $response['errors']['general'] = "Erreur: " . $stmt->error;
+        }
+
+        $stmt->close();
+    }
 }
 
 $conn->close();
+
+header('Content-Type: application/json');
+echo json_encode($response);
 ?>

@@ -1,105 +1,164 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Formulaire d'inscription</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/inscription.css">
-</head>
-<body>
-    <div class="wrapper" style="background-image: url('../images/bg-registration-form-1.jpg');">
-        <div class="inner">
-            <div class="image-holder">
-                <img src="../images/registration-form-1.jpg" alt="">
-            </div>
-            <form id="registrationForm" action="/siteMarie/php/inscription.php" method="POST">
-                <h3>Formulaire d'inscription</h3>
-                <div class="form-group">
-                    <input type="text" name="prenom" placeholder="Prénom" class="form-control" required>
-                    <input type="text" name="nom" placeholder="Nom" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="adresse" placeholder="Adresse" class="form-control" required>
-                    <input type="text" name="telephone" placeholder="Téléphone" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="age" placeholder="Âge" class="form-control" required>
-                    <input type="text" name="poids" placeholder="Poids (kg)" class="form-control" required>
-                    <input type="text" name="taille" placeholder="Taille (cm)" class="form-control">
-                </div>
-                
-                
-                <div class="form-group">
-                    <select name="genre" id="genre" class="form-control" required>
-                        <option value="" disabled selected>Genre</option>
-                        <option value="femme">Femme</option>
-                        <option value="homme">Homme</option>
-                    </select>
-                    <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
-                    
-                        <select name="activite" id="activite" class="form-control" required>
-                            <option value="" disabled selected>Activité</option>
-                            <option value="1">Peu ou pas d’exercice/semaine</option>
-                            <option value="1.15">1-2 fois / semaine</option>
-                            <option value="1.2">3-5 fois / semaine</option>
-                            <option value="1.6">6-7 fois / semaine</option>
-                        </select>
-                        <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
-                    
-                </div>
-                <div class="form-wrapper">
-                    <input type="text" name="email" id="email" placeholder="Email" class="form-control" required>
-                    <i class="zmdi zmdi-email"></i>
-                    <span id="emailError" style="color: red; display: none;">Adresse e-mail non valide.</span>
-                </div>
-                <div class="form-wrapper">
-                    <input type="password" name="password" id="password" placeholder="Mot de passe" class="form-control" required>
-                    <i class="zmdi zmdi-lock"></i>
-                </div>
-                <div class="form-wrapper">
-                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirmer mot de passe" class="form-control" required>
-                    <i class="zmdi zmdi-lock"></i>
-                    <span id="passwordError" style="color: red; display: none;">Les mots de passe ne correspondent pas.</span>
-                </div>
-                <button type="submit">Enregistrer
-                    <i class="zmdi zmdi-arrow-right"></i>
-                </button>
-            </form>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/inscription.css" />
+  </head>
+  <body>
+    <div
+      class="wrapper"
+      style="background-image: url('../images/bg-registration-form-1.jpg')"
+    >
+      <div class="inner">
+        <div class="image-holder">
+          <img src="../images/registration-form-1.jpg" alt="" />
         </div>
+        <form id="registrationForm">
+          <h3>Formulaire d'inscription</h3>
+          <div class="form-group">
+            <input
+              type="text"
+              name="prenom"
+              placeholder="Prénom"
+              class="form-control"
+              required
+            />
+            <input
+              type="text"
+              name="nom"
+              placeholder="Nom"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              name="adresse"
+              placeholder="Adresse"
+              class="form-control"
+              required
+            />
+            <input
+              type="text"
+              name="telephone"
+              placeholder="Téléphone"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              name="age"
+              placeholder="Âge"
+              class="form-control"
+              required
+            />
+            <input
+              type="text"
+              name="poids"
+              placeholder="Poids (kg)"
+              class="form-control"
+              required
+            />
+            <input
+              type="text"
+              name="taille"
+              placeholder="Taille (cm)"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <select name="genre" id="genre" class="form-control" required>
+              <option value="" disabled selected>Genre</option>
+              <option value="femme">Femme</option>
+              <option value="homme">Homme</option>
+            </select>
+            <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+
+            <select name="activite" id="activite" class="form-control" required>
+              <option value="" disabled selected>Activité</option>
+              <option value="1">Peu ou pas d’exercice/semaine</option>
+              <option value="1.15">1-2 fois / semaine</option>
+              <option value="1.2">3-5 fois / semaine</option>
+              <option value="1.6">6-7 fois / semaine</option>
+            </select>
+            <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+          </div>
+          <div class="form-wrapper">
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Email"
+              class="form-control"
+              required
+            />
+            <i class="zmdi zmdi-email"></i>
+            <span id="emailError" style="color: red"></span>
+          </div>
+          <div class="form-wrapper">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Mot de passe"
+              class="form-control"
+              required
+            />
+            <i class="zmdi zmdi-lock"></i>
+          </div>
+          <div class="form-wrapper">
+            <input
+              type="password"
+              name="confirm_password"
+              id="confirm_password"
+              placeholder="Confirmer mot de passe"
+              class="form-control"
+              required
+            />
+            <i class="zmdi zmdi-lock"></i>
+            <span id="passwordError" style="color: red"></span>
+          </div>
+          <div id="generalError" style="color: red"></div>
+          <button type="submit">
+            Enregistrer
+            <i class="zmdi zmdi-arrow-right"></i>
+          </button>
+        </form>
+      </div>
     </div>
 
     <script>
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            var confirmPassword = document.getElementById('confirm_password').value;
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-            var emailError = document.getElementById('emailError');
-            var passwordError = document.getElementById('passwordError');
+          var formData = new FormData(this);
 
-            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            var valid = true;
-
-            // Réinitialiser les messages d'erreur
-            emailError.style.display = 'none';
-            passwordError.style.display = 'none';
-
-            // Validation de l'email
-            if (!emailRegex.test(email)) {
-                emailError.style.display = 'block';
-                valid = false;
-            }
-
-            // Validation du mot de passe
-            if (password !== confirmPassword) {
-                passwordError.style.display = 'block';
-                valid = false;
-            }
-
-            if (!valid) {
-                event.preventDefault();
-            }
+          fetch("/siteMarie/php/inscription.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                window.location.href = "../index.html";
+              } else {
+                document.getElementById("emailError").textContent =
+                  data.errors.email;
+                document.getElementById("passwordError").textContent =
+                  data.errors.password;
+                document.getElementById("generalError").textContent =
+                  data.errors.general;
+              }
+            })
+            .catch((error) => console.error("Error:", error));
         });
     </script>
-</body>
+  </body>
 </html>
