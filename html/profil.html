@@ -8,8 +8,8 @@
 
        ?>
     <div class="cont-calculateur">
-      
-        <form>
+      <div class="cont-form">
+        <form id="registrationForm">
             <div class="form-group">
                 <label for="nom">Nom :</label>
                 <?php 
@@ -81,8 +81,9 @@
                 <i class="zmdi zmdi-email"></i>
                 <span id="emailError" style="color: red; display: none;">Adresse e-mail non valide.</span>
             </div>
+        </div>
             <br>
-            <div class="form-group">
+            <div class="form-group-btn">
                 <input type="button" id="calculerButton" value="Calculer">
                 <input type="button" id="mettreAJourButton" value="Mettre à jour">
             </div>
@@ -94,3 +95,28 @@
         <canvas id="weightChart"></canvas>
     </div>
 </div>
+
+<script>
+    document
+      .getElementById("registrationForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var formData = new FormData(this);
+
+        fetch("/siteMarie/php/profil.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              window.location.href = "../index.html";
+            } else {
+              document.getElementById("emailError").textContent =
+                data.errors.email;
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      });
+  </script>

@@ -38,9 +38,11 @@ main {
   margin: 50px auto;
 }
 
-.title-profil h1 {
-  margin: 2000px;
-  margin-top: 200px;
+.title-profil {
+  text-align: center;
+  font-size: 24px;
+  margin: 20px;
+  color: green;
 }
 
 .form {
@@ -49,38 +51,30 @@ main {
 
 .form-group {
   margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  margin: auto;
+  padding-bottom: 20px;
+  padding-left: 25%;
 }
 
-.form-group-tx {
+.form-group-btn {
   display: flex;
-  justify-content: center;
+  margin: auto;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
 label {
   margin-right: 10px;
 }
-
 input {
-  margin-right: 10px;
-  max-width: 100px;
-  max-height: 40px;
+  width: 100px;
 }
 
-input.readonly:focus {
-  outline: none;
-}
-
-input.readonly {
-  cursor: default;
-  pointer-events: none;
-}
-
-.readonly {
-  background-color: #f0f0f0;
-  color: #333;
+input[type="button"] {
+  width: 100%;
+  max-width: 200px; /* Ajoutez cette ligne pour limiter la largeur du bouton */
+  display: block;
+  margin: 0 auto;
 }
 
 .details,
@@ -128,11 +122,4 @@ input.readonly {
     font-size: 14px;
     padding: 12px;
   }
-}
-
-input[type="button"] {
-  width: 100%;
-  max-width: 200px; /* Ajoutez cette ligne pour limiter la largeur du bouton */
-  display: block;
-  margin: 0 auto;
 }
