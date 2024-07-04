@@ -13,12 +13,12 @@
             
             if ($logged_in) {
                 // Utilisateur connecté, afficher le bouton de déconnexion
-                echo '<a class="lien-header" href="#" onclick="loadContent(\'profil.html\', \'Profil\'); return false;">Profil</a>';
-                echo '<a id="logout-btn" class="lien-header" href="/siteMarie/php/logout.php">Déconnexion</a>';
+                echo '<a  href="#" onclick="loadContent(\'profil.html\', \'Profil\'); return false;">Profil</a>';
+                echo '<a id="logout-btn"  href="/siteMarie/php/logout.php">Déconnexion</a>';
             } else {
                 // Utilisateur non connecté, afficher les boutons de login et inscription
-                echo '<a id="login-btn" class="lien-header" href="html/login.html">Login</a>';
-                echo '<a id="signup-btn" class="lien-header" href="html/inscription.html">Inscription</a>';
+                echo '<a id="login-btn"  href="html/login.html">Login</a>';
+                echo '<a id="signup-btn"  href="html/inscription.html">Inscription</a>';
             }
             ?>
             
