@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
+  
+
   // Charger l'en-tête et le pied de page
   loadHeader();
   loadFooter();
@@ -27,7 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
             page === "alimentation.html" ||
             page === "blog.html" ||
             page === "calculateur.html" ||
-            page === "profil.html"
+            page === "profil.html" ||
+            page === "tarif_et_contact.html"||
+            page === "infoNutrition.html"
+
           ) {
             loadPageSpecificJS(page);
           }
@@ -87,15 +94,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Fonction pour charger le JS spécifique à chaque page
-  function loadPageSpecificJS(page) {
+function loadPageSpecificJS(page) {
+  // Supprimer les anciens scripts spécifiques à chaque page
+  document.querySelectorAll('script').forEach((script) => {
+    if (script.src.includes("js/") && !script.hasAttribute("data-persistent")) {
+      script.parentNode.removeChild(script);
+    }
+  });
+
+  // Charger le nouveau script spécifique à la page
+  
     const jsFile = "js/" + page.replace(".html", ".js");
     const scriptElement = document.createElement("script");
     scriptElement.src = jsFile;
     document.body.appendChild(scriptElement);
-  }
+  
+}
 
-  //////////////////////////////////////////////////////////////////////////////////////////
-  /////////////////////// GEstion des log
+
+
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////// POUR LA PAGE BLOG /////////////////////////////////////////////////////////
@@ -184,3 +201,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+function hamburger(){
+
+
+  
+  const menuSmartphone = document.querySelector(".container-menu-smartphone");
+
+  if (menuSmartphone.style.display === '' || menuSmartphone.style.display === 'none'){
+    menuSmartphone.style.display = 'flex'
+    return true
+  }
+
+  if (menuSmartphone.style.display === 'flex'){
+    menuSmartphone.style.display = 'none'
+    
+    return true
+  }
+
+  };

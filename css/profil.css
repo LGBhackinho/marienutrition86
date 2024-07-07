@@ -116,6 +116,10 @@ input[type="button"] {
   margin-top: 20px;
 }
 
+#emailError{
+  margin-top: 10px;
+}
+
 @media (max-width: 600px) {
   .prev,
   .next {

@@ -9,11 +9,11 @@ main{
     background-attachment: fixed;
    
 }
-body {
+/* body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
+} */
 
 .carousel {
     width: 100%;
@@ -140,4 +140,8 @@ body {
         font-size: 3.5vw; /* Adjusted font size for smaller screens */
         line-height: 4vw; /* Adjusted line height for smaller screens */
     }
+
+
+
+    
 }

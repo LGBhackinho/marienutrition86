@@ -87,3 +87,87 @@ main{
     font-size: 24px;
     margin: 40px;
 }
+
+
+/* Media queries for responsive design */
+@media (max-width: 900px) {
+    .img_yoga {
+        width: 100%;
+        height: auto;
+        transform: none;
+    }
+
+   
+
+    .story {
+        padding: 20px 20px 40px 20px;
+    }
+
+    .story h1 {
+        font-size: 32px;
+        padding-bottom: 20px;
+    }
+
+    .story p, .story .auteur {
+        font-size: 18px;
+        margin: 20px;
+    }
+
+    .story h2 {
+        font-size: 24px;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+   
+.citation{
+    display: flex;
+    flex-direction: column;
+}
+    .citation .cite1, .citation .cite2, .citation .cite3, .citation .cite4{
+        position: static;
+       font-size: 14px;
+        
+    }
+    
+    .cite1{
+        position: static;
+       
+       
+    }
+    
+    .cite2{
+        position: static;
+        
+    }
+    
+    .cite3{
+        position: static;
+       
+    }
+    
+    .cite4{
+        position: static;
+       
+    }
+
+    .story {
+        padding: 20px 10px 20px 10px;
+    }
+
+    .story h1 {
+        font-size: 28px;
+        padding-bottom: 20px;
+    }
+
+    .story p, .story .auteur {
+        font-size: 16px;
+        margin: 10px;
+    }
+
+    .story h2 {
+        font-size: 22px;
+        margin: 10px;
+    }
+}

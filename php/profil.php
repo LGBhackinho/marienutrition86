@@ -1,4 +1,7 @@
 <?php
+
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -24,13 +27,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
     $age = $_POST['age'];
-    $poids = $_POST['poids'];
+    $poids = $_POST['poidsInitial']; // Assurez-vous que les noms de champs correspondent
     $taille = $_POST['taille'];
     $adresse = $_POST['adresse'];
     $telephone = $_POST['telephone'];
     $email = $_POST['email'];
-    $genre = $_POST['genre'];
     $activite = $_POST['activite'];
+
+    session_start();
+
 
     // Validation de l'email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -38,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Vérification si l'email existe déjà dans la base de données et récupérer l'ID utilisateur
         $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
+        $stmt->bind_param("s", $_SESSION['email']);
         $stmt->execute();
         $stmt->store_result();
         $stmt->bind_result($id);
@@ -54,13 +59,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($response['errors']['email'])) {
         // Préparer et lier
-        $stmt = $conn->prepare("UPDATE users SET prenom = ?, nom = ?, age = ?, poids = ?, taille = ?, adresse = ?, telephone = ?, genre = ?, activite = ? WHERE id = ?");
-        $stmt->bind_param("ssidisisssi", $prenom, $nom, $age, $poids, $taille, $adresse, $telephone, $genre, $activite, $id);
+        $stmt = $conn->prepare("UPDATE users SET email = ?, prenom = ?, nom = ?, age = ?, poids = ?, taille = ?, adresse = ?, telephone = ?, activite = ? WHERE id = ?");
+        $stmt->bind_param("sssidsisii", $email, $prenom, $nom, $age, $poids, $taille, $adresse, $telephone, $activite, $id);
 
         // Exécuter la requête
         if ($stmt->execute()) {
             // Démarrage de la session
-            session_start();
+           
 
             // Stockage des informations de l'utilisateur dans des variables de session
             $_SESSION['loggedin'] = true;
@@ -72,11 +77,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['adresse'] = $adresse;
             $_SESSION['telephone'] = $telephone;
             $_SESSION['email'] = $email;
-            $_SESSION['genre'] = $genre;
             $_SESSION['activite'] = $activite;
             $_SESSION['taille'] = $taille;
 
             $response['success'] = true;
+            $response['updated_prenom'] = $prenom; // Envoyer le nouveau prénom mis à jour
         } else {
             $response['errors']['general'] = "Erreur: " . $stmt->error;
         }
@@ -86,6 +91,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
+
+// Toujours retourner une réponse JSON
+
 
 header('Content-Type: application/json');
 echo json_encode($response);

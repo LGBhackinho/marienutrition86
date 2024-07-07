@@ -4,12 +4,12 @@
 <div class="container-general">
     <?php
         session_start();
-        echo '<div class="title-profil"><h1 >Profil de ' .$_SESSION['prenom'] .'</h1></div>';
+        echo '<div class="title-profil"><h1 id="prenom">Profil de ' .$_SESSION['prenom'] .'</h1></div>';
 
        ?>
     <div class="cont-calculateur">
       <div class="cont-form">
-        <form id="registrationForm">
+        <form id="registrationForm" method="post" >
             <div class="form-group">
                 <label for="nom">Nom :</label>
                 <?php 
@@ -78,14 +78,13 @@
                 <?php 
                 echo '<input type="text" name="email" id="email" placeholder="Email" value="' . (isset($_SESSION['email']) ? $_SESSION['email'] : '') . '" class="form-control" required>'; 
                 ?>
-                <i class="zmdi zmdi-email"></i>
-                <span id="emailError" style="color: red; display: none;">Adresse e-mail non valide.</span>
+                <div id="emailError" style="color: red;"></div>
             </div>
-        </div>
+            
             <br>
             <div class="form-group-btn">
-                <input type="button" id="calculerButton" value="Calculer">
-                <input type="button" id="mettreAJourButton" value="Mettre à jour">
+                <a class="lien-header" href="#" onclick="loadContent('infoNutrition.html', 'infoNutrition'); return false;"><input type="button" id="mettreAJour" value="Info Nutritionnel"></a>
+                <input type="submit"  value="Mettre à jour"/>
             </div>
         </form>
         
@@ -96,27 +95,4 @@
     </div>
 </div>
 
-<script>
-    document
-      .getElementById("registrationForm")
-      .addEventListener("submit", function (event) {
-        event.preventDefault();
 
-        var formData = new FormData(this);
-
-        fetch("/siteMarie/php/profil.php", {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.success) {
-              window.location.href = "../index.html";
-            } else {
-              document.getElementById("emailError").textContent =
-                data.errors.email;
-            }
-          })
-          .catch((error) => console.error("Error:", error));
-      });
-  </script>

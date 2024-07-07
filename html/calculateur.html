@@ -3,7 +3,7 @@
         <div class="cont-calculateur">
             <h1>Calculateur de calorie individuel</h1>
             <br>
-            <form>
+            <form id="registrationForm">
                 <?php
             session_start();
             
@@ -72,16 +72,16 @@
                 
                 <div class="form-group">
                     <label for="imc">IMC:</label>
-                    <input type="text" id="imc" class="readonly" readonly>
+                    <input type="text" id="imc" name="imc" class="readonly" readonly>
                 </div>
                 <div class="form-group">
                     <label for="depenseCal">Dépense Calorique Journalière (kcal):</label>
-                    <input type="text" id="depenseCal" class="readonly" readonly>
+                    <input type="text" id="depenseCal" name="depenseCal" class="readonly" readonly>
                 </div>
                 <div class="form-group">
                     <label for="tauxMasseGrasse">Taux de Masse Grasse (%):</label>
                     <div class="form-group-tx">
-                        <input type="number" id="tauxMasseGrasse" class="readonly" readonly>
+                        <input type="number" id="tauxMasseGrasse" name="tauxMasseGrasse" class="readonly" readonly>
                         <div id="dropdownIcon" class="dropdown-icon" onclick="toggleImages(this)">▼</div>
                     </div>
                 
@@ -96,21 +96,21 @@
                 </div>
                 <div class="form-group">
                     <label for="objectifCal">Objectif Cal/j (kcal):</label>
-                    <input type="text" id="objectifCal" class="readonly" readonly>
+                    <input type="text" id="objectifCal" name="objectifCal" class="readonly" readonly>
                     <button type="button" id="toggleDetailsButton" onclick="toggleDetails(this)" style="margin-left: 10px;">Détails</button>
                 </div>
                 <div id="details" class="details">
                     <div class="form-group">
                         <label for="glucides">Glucides / J (g):</label>
-                        <input type="text" id="glucides" class="readonly" readonly>
+                        <input type="text" id="glucides" name="glucides" class="readonly" readonly>
                     </div>
                     <div class="form-group">
                         <label for="lipides">Lipides / J (g):</label>
-                        <input type="text" id="lipides" class="readonly" readonly>
+                        <input type="text" id="lipides" name="lipides" class="readonly" readonly>
                     </div>
                     <div class="form-group">
                         <label for="proteines">Protéines / J (g):</label>
-                        <input type="text" id="proteines" class="readonly" readonly>
+                        <input type="text" id="proteines" name="proteines" class="readonly" readonly>
                     </div>
                 </div>
                 <div class="form-group">
@@ -122,7 +122,7 @@
                     if ($logged_in) {
                         
                         echo '<label for="poidsAtteindre">Poids à Atteindre (kg):</label>
-                        <input type="number" id="poidsAtteindre" required>';
+                        <input type="number" id="poidsAtteindre" name="poidsAtteindre" >';
                     }
                     ?>
                     
@@ -140,11 +140,16 @@ if ($logged_in) {
             $activite = isset($_SESSION['activite']) ? $_SESSION['activite'] : null;
     
             echo '<input type="button" id="calculerButtonLog" onclick="calculLog(' . $poids . ', ' . $taille . ', ' . $age . ', \'' . $genre . '\', ' . $activite . ')" value="Calcul calorie">';
-    echo '<input type="button" id="btnEnregistrer" value="Enregistrer">';
-    echo '<input type="button" id="btnInfoNurition" value="Info Nutritionnelle">';
+    echo '<input type="submit" id="btnEnregistrer" value="Enregistrer">';
+    echo "<a class='lien-header' href='#' onclick=\"loadContent('infoNutrition.html', 'infoNutrition'); return false;\">
+        <input type='button' id='btnInfoNurition' value='Info Nutritionnelle'>
+      </a>";
+
+
 } else {
     echo '<input type="button" id="calculerButton" onclick="calcul()" value="Calculer">';
 }
+
 
 
 ?>
@@ -152,6 +157,7 @@ if ($logged_in) {
 
                     
                 </div>
+                <div id="emailError" style="color: red;"></div>
             </form>
         </div>
         <div id="weightChartContainer">

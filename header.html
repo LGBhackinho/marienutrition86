@@ -23,9 +23,11 @@
             ?>
             
         </div>
+        
     </div>
     <br>
-    <nav>
+    <button class="hamburger" aria-label="Menu" onclick="hamburger()">&#9776;</button>
+    <nav class="menu">
         <ul>
             <li><a class="lien-header" href="#" onclick="loadContent('acceuil.html', 'acceuil'); return false;">Accueil</a></li>
             <li>|</li>  
@@ -50,6 +52,33 @@
             <li> <a class="lien-header" href="" onclick="loadContent('blog.html'); return false;">Blog</a></li>  
         </ul>
     </nav><br>
+    <div class="container-menu-smartphone">
+        <nav class="menu-smatphone">
+            <ul>
+                <li><a class="lien-header" href="#" onclick="loadContent('acceuil.html', 'acceuil'); return false;">Accueil</a></li>
+                  
+                <li><a class="lien-header" href="#" onclick="loadContent('qui_suis_je.html', 'Qui suis je'); return false;">Qui suis-je</a></li>
+                
+                <li> <a class="lien-header" href="#" onclick="loadContent('alimentation.html', 'nutrition'); return false;">Alimentation</a></li>
+                
+                <li> <a class="lien-header" href="" onclick="loadContent('accompagnement.html'); return false;">Accompagnement</a></li>
+                
+                <li class="menuBas"> <button class="menuBtn">Troubles Chroniques<i class="fa fa-caret-down"></i></button>
+                  <div class="sousMenu">
+                    <ul>
+                        <li> <a class="lien-header"  href="#" onclick="loadContent('fibromyalgie.html'); return false;">Fibromyalgie</a></li>
+                        
+                        <li> <a class="lien-header"  href="#" onclick="loadContent('sii.html'); return false;">Sii</a></li>
+                    </ul>
+                  </div>
+                </li>
+                
+                <li> <a class="lien-header" href="" onclick="loadContent('tarif_et_contact.html'); return false;">Tarif et Contact</a></li>
+                
+                <li> <a class="lien-header" href="" onclick="loadContent('blog.html'); return false;">Blog</a></li>  
+            </ul>
+        </nav>
+    </div>
 </header>
 
 

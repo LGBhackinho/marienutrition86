@@ -1,0 +1,27 @@
+main {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-image: none;
+}
+
+#nutritionChart {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#infoBox {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#infoBox h3 {
+    margin-top: 0;
+}
+
+#infoBox p {
+    margin: 5px 0;
+}
