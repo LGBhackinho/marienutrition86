@@ -1,5 +1,5 @@
 *{
-    box-sizing: content-box;
+    box-sizing: border-box;
     color: rgb(42, 124, 111);
 }
 
@@ -87,3 +87,49 @@ h2{
  
 
  
+@media (max-width: 600px) {
+    .accompagnement {
+        display: flex;
+       flex-direction: column;
+        margin-bottom: 0;
+    }
+   
+    h2,h1 {
+        font-size: 6vw; /* Adjusted font size for smaller screens */
+       
+    }
+    h2 {
+        font-size: 5vw; /* Adjusted font size for smaller screens */
+       
+    }
+    
+     li{
+        font-size: 4.5vw; /* Adjusted font size for smaller screens */
+        
+    }
+    .etape1,.etape2,.etape3,.etape4{
+        font-size: 3.5vw; /* Adjusted font size for smaller screens */
+        line-height: 4vw; /* Adjusted line height for smaller screens */
+       position: static;
+       margin: 6px 0;
+       text-align: center;
+       justify-content: center;
+       padding: 5px;
+    }
+
+    p{
+        text-align: center;
+        font-size: 15px;
+    }
+
+img{
+    max-width: 250px;
+};
+
+.aliment ul li {
+    
+    margin-bottom: 20px; /* Espacement entre les éléments de liste */
+    line-height: 20px;
+    margin-bottom: 25px;
+}
+}

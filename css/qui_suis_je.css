@@ -120,37 +120,49 @@ main{
 }
 
 @media (max-width: 600px) {
+
+    .img_yoga img{
+       display: none;
+        
+ }
    
+ .presentation{
+text-align: center;
+height: auto;
+   
+ }
 .citation{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
-    .citation .cite1, .citation .cite2, .citation .cite3, .citation .cite4{
+ .citation .cite1, .citation .cite2, .citation .cite3, .citation .cite4{
         position: static;
        font-size: 14px;
-        
+       margin: 10px 0;
+       line-height: 30px;
+       max-width: 337px;
     }
+
+   .cite11{
+    max-width: 335px;
+    max-height: 200px;
+    background-color: white;
+    border-radius: 30px;
+    text-align: center;
     
-    .cite1{
+    
+    margin-top: 10px;
+    
+   }
+    
+    .cite1,.cite2,.cite3,.cite4{
         position: static;
        
        
     }
     
-    .cite2{
-        position: static;
-        
-    }
-    
-    .cite3{
-        position: static;
-       
-    }
-    
-    .cite4{
-        position: static;
-       
-    }
+   
 
     .story {
         padding: 20px 10px 20px 10px;

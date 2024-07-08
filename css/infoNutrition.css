@@ -25,3 +25,17 @@ main {
 #infoBox p {
     margin: 5px 0;
 }
+
+
+@media (max-width: 600px) {
+    main {
+        
+        width: 80%;
+        height: 70vh;
+        
+    }
+    #nutritionChart {
+        max-width: 330px;
+        margin: 0 auto;
+    }
+}
