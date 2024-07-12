@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+if (!isset($_SESSION['userid'])) {
+    header('Location: ../html/login.html');
     exit;
 }
 
@@ -86,7 +86,7 @@ $users = $stmt->fetchAll(PDO::FETCH_GROUP); // Regrouper les résultats par ID u
 </head>
 <body>
     <h1>Uploader un fichier</h1>
-    <form action="/php/upload.php" method="post" enctype="multipart/form-data">
+    <form action="/siteMarie/php/upload.php" method="post" enctype="multipart/form-data">
         <label for="user_id">Utilisateur :</label>
         <select name="user_id" id="user_id">
             <!-- Remplir dynamiquement avec les utilisateurs de la base de données -->
@@ -126,7 +126,7 @@ $users = $stmt->fetchAll(PDO::FETCH_GROUP); // Regrouper les résultats par ID u
                 <td><?= htmlspecialchars($files[0]['poids']) ?></td>
                 <td>
                     <?php if (!empty($files)): ?>
-                        <form action="dashboardAdmin.php" method="get">
+                        <form action="dashboardAdmin.php" method="post">
                             <select name="delete_file">
                                 <option value="">Choisir un fichier</option>
                                 <?php foreach ($files as $file): ?>

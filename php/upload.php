@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+if (!isset($_SESSION['userid'])) {
+    header('Location: ../html/login.html');
     exit;
 }
 
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file']) && isset($_PO
     $user_id = $_POST['user_id'];
     $filename = $_FILES['file']['name'];
     $file_tmp = $_FILES['file']['tmp_name'];
-    $upload_dir = 'fichiers_pdf/';
+    $upload_dir = '../fichiers_pdf/';
 
     // Vérifier et créer le dossier s'il n'existe pas
     if (!is_dir($upload_dir)) {

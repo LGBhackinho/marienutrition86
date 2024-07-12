@@ -70,21 +70,43 @@ function main() {
               const index = elements[0].index;
               const item = data[index];
               document.getElementById("infoBox").innerHTML = `
-                                <h3>Information du ${item.date}</h3>
-                                <br>
-                                <p><span>IMC:</span> ${item.imc}</p>
-                                <p><span>Poids à date:</span> ${item.poidsInitial} Kg</p>
-                                <p><span>Dépense Calorique:</span> ${item.depenseCal} Cal</p>
-                                <p><span>Taux de Masse Grasse:</span> ${item.tauxMasseGrasse} %</p>
-                                <p><span>Objectif Calorique:</span> ${item.objectifCal} Cal/j</p>
-                                <p><span>Glucides:</span> ${item.glucides} gr/j</p>
-                                <p><span>Lipides:</span> ${item.lipides} gr/j</p>
-                                <p><span>Protéines:</span> ${item.proteines} gr/j</p>
-                                <p><span>Poids à Atteindre:</span> ${item.poidsAtteindre} Kg</p>
-                            `;
+                <h3>Information du ${item.date}</h3>
+                <br>
+                <p><span>IMC:</span> ${item.imc}</p>
+                <p><span>Poids à date:</span> ${item.poidsInitial} Kg</p>
+                <p><span>Dépense Calorique:</span> ${item.depenseCal} Cal</p>
+                <p><span>Taux de Masse Grasse:</span> ${item.tauxMasseGrasse} %</p>
+                <p><span>Objectif Calorique:</span> ${item.objectifCal} Cal/j</p>
+                <p><span>Glucides:</span> ${item.glucides} gr/j</p>
+                <p><span>Lipides:</span> ${item.lipides} gr/j</p>
+                <p><span>Protéines:</span> ${item.proteines} gr/j</p>
+                <p><span>Poids à Atteindre:</span> ${item.poidsAtteindre} Kg</p>
+              `;
             }
           },
         },
       });
+    });
+
+  // Récupérer et afficher la liste des fichiers de l'utilisateur
+  fetch(`/siteMarie/php/getUserFiles.php`)
+    .then((response) => response.json())
+    .then((files) => {
+      const userFilesContainer = document.getElementById("userFiles");
+      if (files.length > 0) {
+        let fileList = "<h3>Vos fichiers :</h3><ul>";
+        files.forEach((file) => {
+          fileList += `<li><a href="${file.filepath}" download>${file.filename}</a> (Uploaded at: ${file.uploaded_at})</li>`;
+        });
+        fileList += "</ul>";
+        userFilesContainer.innerHTML = fileList;
+      } else {
+        userFilesContainer.innerHTML = "<p>Aucun fichier disponible.</p>";
+      }
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la récupération des fichiers:", error);
+      document.getElementById("userFiles").innerHTML =
+        "<p>Erreur lors de la récupération des fichiers.</p>";
     });
 }

@@ -1,6 +1,4 @@
-
 main {
-    
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -37,6 +35,21 @@ main {
   font-size: 14px;
   white-space: pre-wrap;
 }
+
+.post .favorite {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: rgb(20, 19, 19);
+
+  text-shadow: 0 0 0 red;
+}
+.post .favorite.active {
+  color: red;
+}
+
 @media (max-width: 900px) {
   .post {
     width: calc(50% - 40px); /* Deux posts par ligne */

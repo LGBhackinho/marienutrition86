@@ -13,7 +13,6 @@
   position: relative;
 
   width: 100%;
-  height: 100%;
 }
 
 body,
@@ -116,6 +115,8 @@ input.readonly {
 .dropdown-icon {
   background: #ccc;
   cursor: pointer;
+  border-radius: 2px;
+  align-content: center;
 }
 #weightChartContainer {
   max-width: 600px;
@@ -151,5 +152,14 @@ input[type="submit"]:hover {
   .next {
     font-size: 14px;
     padding: 12px;
+  }
+  input[type="button"],
+  input[type="submit"] {
+    font-size: 9px;
+  }
+  .dropdown-icon {
+    height: 25px;
+    border-radius: 2px;
+    align-content: center;
   }
 }
