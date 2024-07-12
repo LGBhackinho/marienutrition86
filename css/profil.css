@@ -8,7 +8,6 @@
   background-color: #c6f0c6de;
 }
 
-
 main {
   display: flex;
   justify-content: center;
@@ -25,8 +24,8 @@ main {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
-  max-width: 60%;
+
+  max-width: 40%;
   max-height: 500px;
   font-family: Arial, sans-serif;
   margin: 0 auto;
@@ -47,8 +46,7 @@ main {
 }
 
 .form-group {
-  margin-bottom: 15px;
-  margin: auto;
+  margin-top: 2px;
   padding-bottom: 20px;
   padding-left: 25%;
 }
@@ -63,15 +61,45 @@ main {
 label {
   margin-right: 10px;
 }
+
 input {
-  width: 100px;
+  max-width: 61px;
+  max-height: 25px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid green;
+}
+.input-adresse {
+  max-width: 200px;
+}
+.input-email {
+  max-width: 200px;
+}
+.input-telephone {
+  max-width: 107px;
 }
 
-input[type="button"] {
-  width: 100%;
-  max-width: 200px; /* Ajoutez cette ligne pour limiter la largeur du bouton */
-  display: block;
-  margin: 0 auto;
+input[type="button"],
+input[type="submit"] {
+  padding: 0 10px;
+  font-size: 12px;
+  color: #7dc07d;
+  text-decoration: none;
+  text-align: center;
+  max-width: 135px;
+  height: 38px;
+  cursor: pointer;
+  border: 1px solid #7dc07d;
+  background-color: #8ebf8e;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background-color: #7dc07d; /* Vert foncé */
+  transform: scale(1.05);
 }
 
 .details,
@@ -113,12 +141,12 @@ input[type="button"] {
   margin-top: 20px;
 }
 
-#emailError{
+#emailError {
   margin-top: 10px;
 }
 
 @media (max-width: 600px) {
-  main{
+  main {
     height: 90vh;
   }
   .prev,
@@ -128,12 +156,6 @@ input[type="button"] {
   }
 
   .cont-calculateur {
-   
-    
     max-width: 100%;
-}
-.form-group{
-  padding-left: 10%;
-}
-
+  }
 }

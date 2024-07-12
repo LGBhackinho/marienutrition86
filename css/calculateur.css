@@ -1,134 +1,155 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-
-
-
-.container-general{
-   
-    width: 100%;
+.container-general {
+  width: 100%;
   height: 100%;
-    background-color: #c6f0c6de;
+  background-color: #c6f0c6de;
 }
 .cont-calculateur {
-    
-    font-family: Arial, sans-serif;
-    margin: auto;
-    position: relative;
-    
-    
-    width: 100%;
-    height: 100%;
-    
+  font-family: Arial, sans-serif;
+  margin: auto;
+  position: relative;
+
+  width: 100%;
+  height: 100%;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url(../images/nutrition.png);
-    background-attachment: fixed;
-    background-size: cover;
-    background-color: rgba(0, 128, 0, 0.7); /* Couleur verte semi-transparente */
-    height: 100vh; /* Occupe toute la hauteur de la fenêtre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/nutrition.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgba(0, 128, 0, 0.7); /* Couleur verte semi-transparente */
+  height: 100vh; /* Occupe toute la hauteur de la fenêtre */
 }
 
-
-
 .cont-calculateur {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 500px;
-    max-height: 500px;
-    margin: 50px auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  max-height: 532px;
+  margin: 50px auto;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
+  font-size: 24px;
+  border-bottom: 2px solid rgb(138, 199, 138);
+  padding-bottom: 10px;
+  color: rgb(85 109 85);
 }
-
 
 .form-group {
-    margin-bottom: 15px;
-    display: flex;
-    justify-content:space-between;
-   
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
 }
- .form-group-tx{
-    display: flex;
-    justify-content: right;
- }
+.form-group-tx {
+  display: flex;
+  justify-content: right;
+}
 label {
-    width: 50%;
-    margin-right: 10px;
+  width: 59%;
+  margin-right: 10px;
 }
 
-input{
-    max-width: 100px;
-    max-height: 40px;
-    
+input {
+  max-width: 80px;
+  max-height: 25px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid green;
 }
 input.readonly:focus {
-    outline: none;
+  outline: none;
 }
 
 input.readonly {
-    cursor: default;
-    pointer-events: none;
+  cursor: default;
+  pointer-events: none;
 }
 .readonly {
-    background-color: #f0f0f0;
-    color: #333;
+  background-color: #f0f0f0;
+  color: #333;
 }
-.details, .image-selection {
-    display: none;
-    position: absolute;
-    background: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 10;
+.details,
+.image-selection {
+  display: none;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 .image-selection {
-white-space: nowrap;
+  white-space: nowrap;
 }
 
 .image-selection img {
-width: auto; /* Réduire la taille des images */
-height: 200px; /* Maintenir le ratio d'aspect */
-margin: 5px; /* Ajouter un espace entre les images */
-cursor: pointer; /* Changer le curseur pour indiquer que l'image est cliquable */
-display: inline-block; /* Assurer que les images sont alignées en ligne */
+  width: auto; /* Réduire la taille des images */
+  height: 200px; /* Maintenir le ratio d'aspect */
+  margin: 5px; /* Ajouter un espace entre les images */
+  cursor: pointer; /* Changer le curseur pour indiquer que l'image est cliquable */
+  display: inline-block; /* Assurer que les images sont alignées en ligne */
 }
 .dropdown-container {
-    display: flex;
-    align-items: center;
-    flex: 1.5;
+  display: flex;
+  align-items: center;
+  flex: 1.5;
 }
 .dropdown-icon {
-    background: #ccc;
-    cursor: pointer;
+  background: #ccc;
+  cursor: pointer;
 }
 #weightChartContainer {
-    max-width: 600px;
-    margin-top: 20px;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+input[type="button"],
+input[type="submit"] {
+  padding: 0 10px;
+  font-size: 12px;
+  color: #7dc07d;
+  text-decoration: none;
+  text-align: center;
+  max-height: 40px;
+  height: 38px;
+  max-width: 120px;
+  cursor: pointer;
+  border: 1px solid #7dc07d;
+  background-color: #8ebf8e;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background-color: #7dc07d; /* Vert foncé */
+  transform: scale(1.05);
 }
 
 @media (max-width: 600px) {
-    .prev, .next {
-        font-size: 14px;
-        padding: 12px;
-    }
+  .prev,
+  .next {
+    font-size: 14px;
+    padding: 12px;
+  }
 }
-

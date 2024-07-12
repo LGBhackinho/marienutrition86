@@ -51,7 +51,7 @@
                 $activite = isset($_SESSION['activite']) ? $_SESSION['activite'] : '';
                 echo '<select name="activite" id="activite" class="form-control" required>
                     <option value="" disabled' . ($activite === '' ? ' selected' : '') . '>Activité</option>
-                    <option value="1"' . ($activite == '1' ? ' selected' : '') . '>Peu ou pas d’exercice/semaine</option>
+                    <option value="1"' . ($activite == '1' ? ' selected' : '') . '>0-1 fois / semaine</option>
                     <option value="1.15"' . ($activite == '1.15' ? ' selected' : '') . '>1-2 fois / semaine</option>
                     <option value="1.2"' . ($activite == '1.2' ? ' selected' : '') . '>3-5 fois / semaine</option>
                     <option value="1.6"' . ($activite == '1.6' ? ' selected' : '') . '>6-7 fois / semaine</option>
@@ -62,28 +62,28 @@
             <div class="form-group">
                 <label for="adresse">Adresse :</label>
                 <?php 
-                echo '<input type="text" name="adresse" placeholder="Adresse" value="' . (isset($_SESSION['adresse']) ? $_SESSION['adresse'] : '') . '" class="form-control">'; 
+                echo '<input class="input-adresse" type="text" name="adresse" placeholder="Adresse" value="' . (isset($_SESSION['adresse']) ? $_SESSION['adresse'] : '') . '" class="form-control">'; 
                 ?>
             </div>
 
             <div class="form-group">
                 <label for="telephone">Téléphone :</label>
                 <?php 
-                echo '<input type="text" name="telephone" placeholder="Téléphone" value="' . (isset($_SESSION['telephone']) ? $_SESSION['telephone'] : '') . '" class="form-control">'; 
+                echo '<input class="input-telephone" type="text" name="telephone" placeholder="Téléphone" value="' . (isset($_SESSION['telephone']) ? $_SESSION['telephone'] : '') . '" class="form-control">'; 
                 ?>
             </div>
             
             <div class="form-group">
                 <label for="email">Adresse email :</label>
                 <?php 
-                echo '<input type="text" name="email" id="email" placeholder="Email" value="' . (isset($_SESSION['email']) ? $_SESSION['email'] : '') . '" class="form-control" required>'; 
+                echo '<input class="input-email" type="text" name="email" id="email" placeholder="Email" value="' . (isset($_SESSION['email']) ? $_SESSION['email'] : '') . '" class="form-control" required>'; 
                 ?>
                 <div id="emailError" style="color: red;"></div>
             </div>
             
             <br>
             <div class="form-group-btn">
-                <a class="lien-header" href="#" onclick="loadContent('infoNutrition.html', 'infoNutrition'); return false;"><input type="button" id="mettreAJour" value="Info Nutritionnel"></a>
+                <a class="lien-header" href="#" onclick="loadContent('infoNutrition.html', 'infoNutrition'); return false;"><input type="button" id="mettreAJour" value="Infos Nutritionnelles"></a>
                 <input type="submit"  value="Mettre à jour"/>
             </div>
         </form>

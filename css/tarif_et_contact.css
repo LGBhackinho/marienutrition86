@@ -1,78 +1,74 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-body{
-    display:flex;
-    flex-direction: column;
+body {
+  display: flex;
+  flex-direction: column;
 }
-main{
-    height: auto;
-    
-   
-    background-image:none; 
+main {
+  height: auto;
+
+  background-image: none;
 }
-.block1{
-    width: 100%;
-       
+.block1 {
+  width: 100%;
 }
-.contact{
-    
-    display: flex;   
+.contact {
+  display: flex;
 }
 
-.title1H1{
-    width: 100%;
-    text-align: center;
-    background-color: #40BCA8;
-    height: 350px;
-    font-size: 69px;
-    color: #2A7C6F;
+.title1H1 {
+  width: 100%;
+  text-align: center;
+  background-color: #40bca8;
+  height: 350px;
+  font-size: 69px;
+  color: #2a7c6f;
 }
-.title1H1 h1,.title2H1 h1{
-    margin-top: 10%;
-}
-
-
-.title2H1{
-    width: 100%;
-    text-align: center;
-    height: 350px;
-    font-size: 69px;
-    color: #2A7C6F;
-}
-.coordonee{
-    width: 100%;
-    height: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    
+.title1H1 h1,
+.title2H1 h1 {
+  margin-top: 10%;
 }
 
-.mail,.telephone{
-    display: flex;
-    margin-left: 10px;
+.title2H1 {
+  width: 100%;
+  text-align: center;
+  height: 350px;
+  font-size: 69px;
+  color: #2a7c6f;
+}
+.coordonee {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.align_lien_tel,.align_lien_mail{
-    font-size: 24px;
-    margin: auto 50px;
-}
-.align_lien_tel span,.align_lien_mail span{
-    margin-left: 30px;
-    color:#2A7C6F;
+.mail,
+.telephone {
+  display: flex;
+  margin-left: 10px;
 }
 
+.align_lien_tel,
+.align_lien_mail {
+  font-size: 24px;
+  margin: auto 50px;
+}
+.align_lien_tel span,
+.align_lien_mail span {
+  margin-left: 30px;
+  color: #2a7c6f;
+}
 
-.logo2{
-    width: 120px;
-    height: 130px;
-    position: absolute;
-    right: 46%;
-    top: 290px;
-    
-    
+.logo2 {
+  width: 120px;
+  height: 130px;
+  position: absolute;
+  right: 46%;
+  top: 290px;
 }
 
 /* .tarif{
@@ -80,274 +76,259 @@ main{
     
     
 } */
-.sectionTarif{
-    
-    display: flex;
+.sectionTarif {
+  display: flex;
 }
 
-.tarif img{
-    width: 129px;
-    height: 184px;
-    margin: auto 30px;
+.tarif img {
+  width: 129px;
+  height: 184px;
+  margin: auto 30px;
 }
-.tarif{
-    width: 100%;
-    height: 350px;
-    background-color: #BDE9E2;
-    display: flex;
-
+.tarif {
+  width: 100%;
+  height: 350px;
+  background-color: #bde9e2;
+  display: flex;
 }
 
 .tarif_text {
-    display:flex;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tarif_text span {
+  font-weight: bold;
+}
+
+.tarif_text ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.tarif_text ul li {
+  position: relative; /* Pour positionner le pseudo-élément */
+  padding-left: 20px; /* Ajout de l'espacement pour le texte */
+  margin-bottom: 30px; /* Espacement entre les éléments de liste */
+  text-align: left;
+  font-size: 25px;
+  color: #2a7c6f;
+}
+.tarif_text ul li::before {
+  content: "•"; /* Caractère de la puce */
+  position: absolute;
+  left: 0;
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////    FORMULAIRE DE CONTACT /////////////////////////// */
+
+.formilaire-contact {
+  max-width: 850px;
+  max-height: 100%;
+  color: #2a7c6f;
+  background-color: #bde9e26c;
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+p {
+  text-align: center;
+}
+
+form {
+  padding: 30px;
+  border-radius: 10px;
+}
+form h1 {
+  font-size: 20px;
+}
+form .separation {
+  width: 100%;
+  height: 1px;
+  background-color: #747cdf;
+}
+form .corps-formulaire {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+form .corps-formulaire .groupe {
+  position: relative; /* Pour mettre positionner l’élément dans le flux normal de la page */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+form .corps-formulaire .gauche .groupe input {
+  margin-top: 5px;
+  padding: 10px 5px 10px 30px;
+  border: 1px solid #c9c9c9;
+  outline-color: #747cdf;
+  border-radius: 5px;
+}
+form .corps-formulaire .gauche .groupe i {
+  position: absolute; /* positionné par rapport à son parent le plus proche positionné */
+  left: 0;
+  top: 25px;
+  padding: 9px 8px;
+  color: #747cdf;
+}
+form .corps-formulaire .droite {
+  margin-left: 40px;
+}
+form .corps-formulaire .droite .groupe {
+  height: 100%;
+}
+form .corps-formulaire .droite .groupe textarea {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 2px solid #747cdf;
+  outline: none;
+  border-radius: 5px;
+  resize: none;
+  height: 72%;
+  width: 27rem;
+}
+form .pied-formulaire button {
+  margin-top: 10px;
+  background-color: #747cdf;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+form .pied-formulaire button:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 920px) {
+  form .corps-formulaire .droite {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title1H1 {
+    font-size: 24px;
+  }
+  .title1H1,
+  .title2H1 {
+    margin-top: 0;
+    height: 0;
+    background-color: white;
+  }
+
+  .title2H1 {
+    font-size: 24px;
+  }
+  .title2H1 h1 {
+    margin-top: 0;
+  }
+  .coordonee {
+    margin-top: 30px;
+    justify-content: center;
+  }
+
+  div a {
+    flex-direction: column;
+  }
+  .mail,
+  .telephone {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+  }
+
+  .align_lien_tel,
+  .align_lien_mail {
+    font-size: 14px;
+    margin: auto 0;
+  }
+  .align_lien_tel span,
+  .align_lien_mail span {
+    margin-left: 0;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .logo2 {
+    display: none;
+  }
+
+  .sectionTarif {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tarif img {
+    width: 129px;
+    height: 184px;
+    margin: auto 30px;
+  }
+  .tarif {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 70px 0;
+  }
+
+  .tarif_text {
+    display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: center;
   }
 
-  .tarif_text span{
-    font-weight:bold ;
+  .tarif_text span {
+    font-weight: bold;
   }
 
-  .tarif_text ul{
+  .tarif_text ul {
     display: flex;
     flex-direction: column;
     padding-left: 20px;
     max-width: 500px;
     margin: 20px auto;
-    
-    
- }
+  }
 
- .tarif_text ul li {
+  .tarif_text ul li {
     position: relative; /* Pour positionner le pseudo-élément */
     padding-left: 20px; /* Ajout de l'espacement pour le texte */
     margin-bottom: 30px; /* Espacement entre les éléments de liste */
     text-align: left;
     font-size: 25px;
-    color:#2A7C6F;
-}
-.tarif_text ul li::before {
+    color: #2a7c6f;
+  }
+  .tarif_text ul li::before {
     content: "•"; /* Caractère de la puce */
     position: absolute;
     left: 0;
-}
-/* ////////////////////////////////////////////////////////////////////////////////////////////// */
-/* //////////////    FORMULAIRE DE CONTACT /////////////////////////// */
+  }
 
-
-
-.formilaire-contact{
-    max-width: 850px;
-    max-height: 100%;
-    color: #2A7C6F;
-    background-color: #bde9e26c;
-    display: flex;
-    flex-direction: column;
-    margin:  50px auto ;
-
-}
-
-form {
-padding: 30px;
-border-radius: 10px;
-}
-form h1 {
-font-size: 20px;
-}
-form .separation {
-width: 100%;
-height: 1px;
-background-color: #747cdf;
-}
-form .corps-formulaire {
-display: flex;
-flex-wrap: wrap;
-margin-bottom: 30px;
-}
-form .corps-formulaire .groupe {
-position: relative; /* Pour mettre positionner l’élément dans le flux normal de la page */
-margin-top: 20px;
-display: flex;
-flex-direction: column;
-}
-form .corps-formulaire .gauche .groupe input {
-margin-top: 5px;
-padding: 10px 5px 10px 30px;
-border: 1px solid #c9c9c9;
-outline-color: #747cdf;
-border-radius: 5px;
-}
-form .corps-formulaire .gauche .groupe i {
-position: absolute; /* positionné par rapport à son parent le plus proche positionné */
-left: 0;
-top: 25px;
-padding: 9px 8px;
-color: #747cdf;
-}
-form .corps-formulaire .droite {
-margin-left: 40px;
-}
-form .corps-formulaire .droite .groupe {
-height: 100%;
-}
-form .corps-formulaire .droite .groupe textarea {
-margin-top: 5px;
-padding: 10px;
-background-color: #f1f1f1;
-border: 2px solid #747cdf;
-outline: none;
-border-radius: 5px;
-resize: none;
-height: 72%;
-width: 27rem;
-}
-form .pied-formulaire button {
-margin-top: 10px;
-background-color: #747cdf;
-color: white;
-font-size: 15px;
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-outline: none;
-cursor: pointer;
-transition: transform 0.5s;
-}
-form .pied-formulaire button:hover {
-transform: scale(1.05);
-}
-
-
-@media screen and (max-width: 920px) {
-form .corps-formulaire .droite {
-margin-left: 0px;
-}
-}
-
-
-@media (max-width: 600px) {
-
-    .contact{
-    
-        display: flex; 
-        flex-direction: column;  
-    }
-    
-    .title1H1{
-        
-        font-size: 24px;
-      
-    }
-    .title1H1,.title2H1{
-        margin-top: 0;
-        height: 0;
-        background-color: white;
-    }
-    
-    
-    .title2H1{
-       
-        font-size: 24px;
-        
-    }
-    .title2H1 h1{
-        margin-top: 0;
-    }
-    .coordonee{
-        
-        margin-top: 30px;
-        justify-content:center;
-        
-    }
-    
-    div a{
-        flex-direction: column;
-    }
-    .mail,.telephone{
-        display: flex;
-        flex-direction: column;
-        margin-left: 0px;
-    }
-    
-    .align_lien_tel,.align_lien_mail{
-        font-size: 14px;
-        margin: auto 0;
-       
-    }
-    .align_lien_tel span,.align_lien_mail span{
-        margin-left: 0;
-        text-align: center;
-        margin: 10px 0;
-    }
-    
-    
-    .logo2{
-       display: none;
-        
-        
-    }
-    
-   
-    .sectionTarif{
-        
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .tarif img{
-        width: 129px;
-        height: 184px;
-        margin: auto 30px;
-    }
-    .tarif{
-       background-color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    margin: 70px 0;
-    }
-    
-    .tarif_text {
-        display:flex;
-        width: 100%;
-        flex-direction: column;
-        justify-content: center;
-      }
-    
-      .tarif_text span{
-        font-weight:bold ;
-      }
-    
-      .tarif_text ul{
-        display: flex;
-        flex-direction: column;
-        padding-left: 20px;
-        max-width: 500px;
-        margin: 20px auto;
-        
-        
-     }
-    
-     .tarif_text ul li {
-        position: relative; /* Pour positionner le pseudo-élément */
-        padding-left: 20px; /* Ajout de l'espacement pour le texte */
-        margin-bottom: 30px; /* Espacement entre les éléments de liste */
-        text-align: left;
-        font-size: 25px;
-        color:#2A7C6F;
-    }
-    .tarif_text ul li::before {
-        content: "•"; /* Caractère de la puce */
-        position: absolute;
-        left: 0;
-    }
-
-    form .corps-formulaire .droite .groupe textarea {
-      
-        width: 19rem;
-    
-}
+  form .corps-formulaire .droite .groupe textarea {
+    width: 19rem;
+  }
 }
 
 /* /////////////////////////////////////////////////////////// */

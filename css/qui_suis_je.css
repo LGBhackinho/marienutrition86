@@ -1,185 +1,183 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-main{
-    
-    height: auto;
-    background-image: url(../images/fleurs.jpg); 
-    background-attachment: fixed;
+main {
+  height: auto;
+  background-image: url(../images/fleurs.jpg);
+  background-attachment: fixed;
 }
-.presentation{
-    height: 930px;
-   
+.presentation {
+  height: 930px;
 }
 
-.img_yoga{
-    width: 620px;
-    height: 930px;
-    position: relative;
-    transform: scaleX(-1);
+.img_yoga {
+  width: 620px;
+  height: 930px;
+  position: relative;
+  transform: scaleX(-1);
 }
-.citation .cite1, .citation .cite2, .citation .cite3, .citation .cite4{
-    position: absolute;
-    max-width: 335px;
-    max-height: 200px;
-    background-color: white;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 24px;
-    line-height: 40px;
-    padding: 10px;
-    color:rgb(42, 124, 111);
-}
-
-.cite1{
-    position: absolute;
-    right: 700px;
-    top: 30px;
-   
+.citation .cite1,
+.citation .cite2,
+.citation .cite3,
+.citation .cite4 {
+  position: absolute;
+  max-width: 335px;
+  max-height: 200px;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 40px;
+  padding: 10px;
+  color: rgb(42, 124, 111);
 }
 
-.cite2{
-    position: absolute;
-    right: 70px;
-    top: 260px;
+.cite1 {
+  position: absolute;
+  right: 700px;
+  top: 30px;
 }
 
-.cite3{
-    position: absolute;
-    right: 700px;
-    top: 500px;
+.cite2 {
+  position: absolute;
+  right: 70px;
+  top: 260px;
 }
 
-.cite4{
-    position: absolute;
-    right: 70px;
-    top: 765px;
+.cite3 {
+  position: absolute;
+  right: 700px;
+  top: 500px;
 }
 
-.story{
-    background-color: antiquewhite;
-    line-height: 40px;
-    padding: 40px 150px 60px 150px;
+.cite4 {
+  position: absolute;
+  right: 70px;
+  top: 765px;
 }
 
-.story h1{
-    text-align: center;
-    color: rgb(42, 124, 111);
-    font-size: 40px;
-    padding-bottom: 30px;
-}
-.story p{
-    text-align:left;
-    color: rgb(42, 124, 111);
-    font-size: 24px;
-    margin: 40px;
-}
-.story h2{
-    text-align: center;
-    color: rgb(42, 124, 111);
-    font-size: 30px;
-    margin: 40px;
-}
-.story .auteur{
-    text-align:right;
-    color: rgb(42, 124, 111);
-    font-size: 24px;
-    margin: 40px;
+.story {
+  background-color: antiquewhite;
+  line-height: 40px;
+  padding: 40px 150px 60px 150px;
 }
 
+.story h1 {
+  text-align: center;
+  color: rgb(42, 124, 111);
+  font-size: 40px;
+  padding-bottom: 30px;
+}
+.story p {
+  text-align: left;
+  color: rgb(42, 124, 111);
+  font-size: 24px;
+  margin: 40px;
+}
+.story h2 {
+  text-align: center;
+  color: rgb(42, 124, 111);
+  font-size: 30px;
+  margin: 40px;
+}
+.story .auteur {
+  text-align: right;
+  color: rgb(42, 124, 111);
+  font-size: 24px;
+  margin: 40px;
+}
 
 /* Media queries for responsive design */
-@media (max-width: 900px) {
-    .img_yoga {
-        width: 100%;
-        height: auto;
-        transform: none;
-    }
+@media (max-width: 1000px) {
+  .img_yoga {
+    height: auto;
+  }
 
-   
+  .story {
+    padding: 20px 20px 40px 20px;
+  }
 
-    .story {
-        padding: 20px 20px 40px 20px;
-    }
+  .story h1 {
+    font-size: 32px;
+    padding-bottom: 20px;
+  }
 
-    .story h1 {
-        font-size: 32px;
-        padding-bottom: 20px;
-    }
+  .story p,
+  .story .auteur {
+    font-size: 18px;
+    margin: 20px;
+  }
 
-    .story p, .story .auteur {
-        font-size: 18px;
-        margin: 20px;
-    }
-
-    .story h2 {
-        font-size: 24px;
-        margin: 20px;
-    }
+  .story h2 {
+    font-size: 24px;
+    margin: 20px;
+  }
+  .cite1,
+  .cite3 {
+    right: 70px;
+  }
 }
 
 @media (max-width: 600px) {
+  .img_yoga img {
+    display: none;
+  }
 
-    .img_yoga img{
-       display: none;
-        
- }
-   
- .presentation{
-text-align: center;
-height: auto;
-   
- }
-.citation{
+  .presentation {
+    text-align: center;
+    height: auto;
+  }
+  .citation {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
- .citation .cite1, .citation .cite2, .citation .cite3, .citation .cite4{
-        position: static;
-       font-size: 14px;
-       margin: 10px 0;
-       line-height: 30px;
-       max-width: 337px;
-    }
+  }
+  .citation .cite1,
+  .citation .cite2,
+  .citation .cite3,
+  .citation .cite4 {
+    position: static;
+    font-size: 14px;
+    margin: 10px 0;
+    line-height: 30px;
+    max-width: 337px;
+  }
 
-   .cite11{
+  .cite11 {
     max-width: 335px;
     max-height: 200px;
     background-color: white;
     border-radius: 30px;
     text-align: center;
-    
-    
+
     margin-top: 10px;
-    
-   }
-    
-    .cite1,.cite2,.cite3,.cite4{
-        position: static;
-       
-       
-    }
-    
-   
+  }
 
-    .story {
-        padding: 20px 10px 20px 10px;
-    }
+  .cite1,
+  .cite2,
+  .cite3,
+  .cite4 {
+    position: static;
+  }
 
-    .story h1 {
-        font-size: 28px;
-        padding-bottom: 20px;
-    }
+  .story {
+    padding: 20px 10px 20px 10px;
+  }
 
-    .story p, .story .auteur {
-        font-size: 16px;
-        margin: 10px;
-    }
+  .story h1 {
+    font-size: 28px;
+    padding-bottom: 20px;
+  }
 
-    .story h2 {
-        font-size: 22px;
-        margin: 10px;
-    }
+  .story p,
+  .story .auteur {
+    font-size: 16px;
+    margin: 10px;
+  }
+
+  .story h2 {
+    font-size: 22px;
+    margin: 10px;
+  }
 }

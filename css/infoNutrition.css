@@ -1,41 +1,125 @@
 main {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-image: none;
+  font-family: "Arial", sans-serif;
+
+  background-image: url(../images/nutrition.png);
+}
+.main-bis {
+  color: #333;
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #c6f0c6de;
+  min-height: 70vh;
+}
+#chartContainer {
+  max-width: 800px; /* Définissez la largeur souhaitée */
+  width: 100%;
+  margin: 0 auto; /* Centre le graphique horizontalement */
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #nutritionChart {
-    max-width: 800px;
-    margin: 0 auto;
+  margin: 40px 0;
+}
+span {
+  font-weight: bold;
 }
 
 #infoBox {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    max-width: 800px;
-    margin: 20px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  margin-top: px;
 }
 
 #infoBox h3 {
-    margin-top: 0;
+  margin-top: 0;
+  color: #007bff;
+  font-size: 1.5em;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 #infoBox p {
-    margin: 5px 0;
+  margin: 8px 0;
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6em;
 }
 
+#infoBox p strong {
+  color: #007bff;
+}
+
+#infoBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
 @media (max-width: 600px) {
-    main {
-        
-        width: 80%;
-        height: 70vh;
-        
-    }
-    #nutritionChart {
-        max-width: 330px;
-        margin: 0 auto;
-    }
+  main {
+    font-family: "Arial", sans-serif;
+
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #nutritionChart {
+    max-width: 600px;
+    width: 70%;
+    margin: 40px 0;
+  }
+
+  #infoBox {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  #infoBox h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.5em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  #infoBox p {
+    margin: 8px 0;
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6em;
+  }
+
+  #infoBox p strong {
+    color: #007bff;
+  }
+
+  #infoBox:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
 }
