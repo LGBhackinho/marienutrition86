@@ -26,10 +26,57 @@ main {
   background-color: #f2c0f79d;
   box-shadow: 10px 5px 5px #72948e;
 }
+
+.filter-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.btn-favoris{
+  margin-top:15px;
+}
+
+.btn-favoris,.btn-filter{
+      
+   
+  color: #7dc07d;
+ 
+ 
+  width: 90px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid #7dc07d;
+  background-color: #8ebf8e;
+  color: white;
+  border-radius: 5px;
+}
+
+
 .post img {
   max-width: 100%;
   border-radius: 10px;
 }
+
+.contener-img {
+  position: relative;
+  display: inline-block; /* Pour ajuster la taille du conteneur à celle de l'image principale */
+}
+
+.img-recette {
+  display: block; /* S'assurer que l'image principale s'affiche comme un bloc */
+}
+
+.img-favoris {
+  position: absolute;
+  bottom: 0; /* Placer en bas */
+  right: 0; /* Placer à droite */
+  width: 30px; 
+  
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
 .post .title {
   margin: 10px 0;
   font-size: 14px;
