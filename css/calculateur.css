@@ -67,7 +67,7 @@ label {
   margin-right: 10px;
 }
 
-input {
+input,select {
   max-width: 80px;
   max-height: 25px;
   text-align: center;

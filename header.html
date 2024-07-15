@@ -15,7 +15,9 @@
                 // Utilisateur connecté, afficher le bouton de déconnexion
                 echo '<a  href="#" onclick="loadContent(\'profil.html\', \'Profil\'); return false;">Profil</a>';
                 echo '<a id="logout-btn"  href="/siteMarie/php/logout.php">Déconnexion</a>';
+                if ($_SESSION['userid']===1 || $_SESSION['userid']===9  ){
                 echo '<a id="dashboard-btn"  href="/siteMarie/php/dashbordAdmin.php">Admin</a>';
+                }
 
             } else {
                 // Utilisateur non connecté, afficher les boutons de login et inscription
@@ -28,7 +30,7 @@
         
     </div>
     <br>
-    <button class="hamburger" aria-label="Menu" onclick="hamburger()">&#9776;</button>
+    <button class="hamburger" aria-label="Menu" onclick="hamburger()">&#9776; </button>
     <nav class="menu">
         <ul>
             <li><a class="lien-header" href="#" onclick="loadContent('acceuil.html', 'acceuil'); return false;">Accueil</a></li>

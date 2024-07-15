@@ -1,10 +1,6 @@
 <?php
 header('Content-Type: application/json');
 
-// Activer l'affichage des erreurs (à désactiver en production)
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 // Connexion à la base de données (à adapter avec vos paramètres)
 $servername = "localhost"; // Remplacez par le bon nom d'hôte si nécessaire

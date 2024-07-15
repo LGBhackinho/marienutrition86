@@ -22,6 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
           document.getElementById("main").innerHTML = data;
           loadPageSpecificCSS(page);
+          const menuSmartphone = document.querySelector(".container-menu-smartphone");
+          menuSmartphone.style.display = "none";
+          document.querySelector(".hamburger").innerHTML = "&#9776;";
           if (
             page === "recette.html" ||
             page === "alimentation.html" ||
@@ -104,18 +107,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function hamburger() {
   const menuSmartphone = document.querySelector(".container-menu-smartphone");
+//   document.querySelector(".lien-header").addEventListener("click",function () {
+//     menuSmartphone.style.display = "none";
+//   },
+//   false,
+// );
 
   if (
     menuSmartphone.style.display === "" ||
     menuSmartphone.style.display === "none"
   ) {
     menuSmartphone.style.display = "flex";
+    document.querySelector(".hamburger").innerHTML = "&#935;";
     return true;
   }
 
   if (menuSmartphone.style.display === "flex") {
     menuSmartphone.style.display = "none";
-
+    document.querySelector(".hamburger").innerHTML = "&#9776;";
     return true;
   }
 }
