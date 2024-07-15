@@ -88,17 +88,34 @@ function main() {
       });
     });
 
-  // Récupérer et afficher la liste des fichiers de l'utilisateur
   fetch(`/siteMarie/php/getUserFiles.php`)
     .then((response) => response.json())
     .then((files) => {
       const userFilesContainer = document.getElementById("userFiles");
       if (files.length > 0) {
-        let fileList = "<h3>Vos fichiers :</h3><ul>";
+        let fileList = `
+          
+          <table>
+            <thead>
+              <tr>
+                <th>Programme(s) </th>
+                <th>Date de mise à disposition</th>
+              </tr>
+            </thead>
+            <tbody>
+        `;
         files.forEach((file) => {
-          fileList += `<li><a href="${file.filepath}" download>${file.filename}</a> (Uploaded at: ${file.uploaded_at})</li>`;
+          fileList += `
+            <tr>
+              <td><a href="php/downloadFile.php?file=${file.filename}" download>${file.filename}</a></td>
+              <td>${file.uploaded_at}</td>
+            </tr>
+          `;
         });
-        fileList += "</ul>";
+        fileList += `
+            </tbody>
+          </table>
+        `;
         userFilesContainer.innerHTML = fileList;
       } else {
         userFilesContainer.innerHTML = "<p>Aucun fichier disponible.</p>";

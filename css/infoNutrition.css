@@ -73,6 +73,43 @@ span {
   flex-direction: column;
 }
 
+/* Style pour le tableau des fichiers */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: #4caf50;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+a {
+  text-decoration: none;
+  color: #1e90ff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 600px) {
   main {
     font-family: "Arial", sans-serif;
