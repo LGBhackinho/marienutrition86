@@ -22,9 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
           document.getElementById("main").innerHTML = data;
           loadPageSpecificCSS(page);
-          const menuSmartphone = document.querySelector(".container-menu-smartphone");
-          menuSmartphone.style.display = "none";
-          document.querySelector(".hamburger").innerHTML = "&#9776;";
+          const menuSmartphone = document.querySelector(
+            ".container-menu-smartphone"
+          );
+          const menuBtn = document.querySelector(".menu-btn");
+          // menuSmartphone.style.display = "none";
+          menuBtn.classList.remove("open");
+          menuSmartphone.classList.remove("visible");
+
           if (
             page === "recette.html" ||
             page === "alimentation.html" ||
@@ -107,24 +112,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function hamburger() {
   const menuSmartphone = document.querySelector(".container-menu-smartphone");
-//   document.querySelector(".lien-header").addEventListener("click",function () {
-//     menuSmartphone.style.display = "none";
-//   },
-//   false,
-// );
+  const menuBtn = document.querySelector(".menu-btn");
 
-  if (
-    menuSmartphone.style.display === "" ||
-    menuSmartphone.style.display === "none"
-  ) {
-    menuSmartphone.style.display = "flex";
-    document.querySelector(".hamburger").innerHTML = "&#935;";
-    return true;
-  }
+  //   document.querySelector(".lien-header").addEventListener("click",function () {
+  //     menuSmartphone.style.display = "none";
+  //   },
+  //   false,
+  // );
+  menuBtn.classList.toggle("open");
+  menuSmartphone.classList.toggle("visible");
+  // if (
+  //   menuSmartphone.style.display === "" ||
+  //   menuSmartphone.style.display === "none"
+  // ) {
+  //   menuSmartphone.style.display = "flex";
+  //   document.querySelector(".hamburger").innerHTML = "&#935;";
+  //   return true;
+  // }
 
-  if (menuSmartphone.style.display === "flex") {
-    menuSmartphone.style.display = "none";
-    document.querySelector(".hamburger").innerHTML = "&#9776;";
-    return true;
-  }
+  // if (menuSmartphone.style.display === "flex") {
+  //   menuSmartphone.style.display = "none";
+  //   document.querySelector(".hamburger").innerHTML = "&#9776;";
+
+  return true;
 }

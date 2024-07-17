@@ -1,10 +1,26 @@
-
-
 <div class="filter-container">
   <div class="filter">
-  <input type="text" id="motCle" placeholder="Mot-clé..." />
-  <button class="btn-filter" onclick="filterRecettes()">Filtrer</button>
+    <input type="text" id="motCle" placeholder="Mot-clé..." />
+    <button class="btn-filter" onclick="filterRecettes()">Filtrer</button>
+  </div>
+  <?php    
+  session_start();
+            
+            // Vérifier si l'utilisateur est connecté
+            $logged_in = isset($_SESSION['loggedin']);
+            if ($logged_in) {
+              // Utilisateur connecté, afficher le bouton de déconnexion
+              echo '<button class="btn-favoris" onclick="filterFavoris()">Favoris</button>';
+            }
+  
+  ?>
 </div>
-  <button class="btn-favoris" onclick="filterFavoris()">Favoris</button>
+
+<div id="content" data-logged-in="<?php echo isset($_SESSION['loggedin']) ? 'true' : 'false'; ?>"></div>
+
+
+<div id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()">
+  &#8679;
 </div>
-<div id="content"></div>
+
+

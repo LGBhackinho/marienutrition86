@@ -1,11 +1,24 @@
-console.log("testttttt");
+///////////////////////////////////////////////////////////////////////
+// Fonction pour afficher/masquer la flèche en fonction du défilement
+window.onscroll = function () {
+  let scrollTopBtn = document.getElementById("scrollTopBtn");
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    scrollTopBtn.classList.add("show");
+  } else {
+    scrollTopBtn.classList.remove("show");
+  }
+};
 
-// Maintenant que le contenu est chargé, vérifiez si #rss-feed existe
-const feedContainer = document.getElementById("rss-feed");
-if (feedContainer) {
-  // Appeler appelRss() ou toute autre fonction de manipulation ici
-  appelRss();
+// Fonction pour remonter en haut de la page
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+// Appeler appelRss() ou toute autre fonction de manipulation ici
+appelRss();
 
 // Fonction de filtrage des articles par mot-clé
 function filterArticles() {
