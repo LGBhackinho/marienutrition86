@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ".container-menu-smartphone"
           );
           const menuBtn = document.querySelector(".menu-btn");
-          // menuSmartphone.style.display = "none";
+
           menuBtn.classList.remove("open");
           menuSmartphone.classList.remove("visible");
 
@@ -114,25 +114,8 @@ function hamburger() {
   const menuSmartphone = document.querySelector(".container-menu-smartphone");
   const menuBtn = document.querySelector(".menu-btn");
 
-  //   document.querySelector(".lien-header").addEventListener("click",function () {
-  //     menuSmartphone.style.display = "none";
-  //   },
-  //   false,
-  // );
   menuBtn.classList.toggle("open");
   menuSmartphone.classList.toggle("visible");
-  // if (
-  //   menuSmartphone.style.display === "" ||
-  //   menuSmartphone.style.display === "none"
-  // ) {
-  //   menuSmartphone.style.display = "flex";
-  //   document.querySelector(".hamburger").innerHTML = "&#935;";
-  //   return true;
-  // }
-
-  // if (menuSmartphone.style.display === "flex") {
-  //   menuSmartphone.style.display = "none";
-  //   document.querySelector(".hamburger").innerHTML = "&#9776;";
 
   return true;
 }

@@ -67,7 +67,8 @@ label {
   margin-right: 10px;
 }
 
-input,select {
+input,
+select {
   max-width: 80px;
   max-height: 25px;
   text-align: center;
@@ -161,5 +162,8 @@ input[type="submit"]:hover {
     height: 25px;
     border-radius: 2px;
     align-content: center;
+  }
+  .form-group {
+    margin: 12px 0;
   }
 }
