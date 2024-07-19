@@ -11,7 +11,7 @@ main {
   flex-direction: column;
   align-items: center;
   background-color: #c6f0c6de;
-  min-height: 70vh;
+  min-height: 100vh;
 }
 #chartContainer {
   max-width: 800px; /* Définissez la largeur souhaitée */
