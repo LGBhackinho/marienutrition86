@@ -7,10 +7,14 @@ if (!isset($_SESSION['userid'])) {
 }
 
 // Configuration de la base de données
-$host = 'localhost';
-$db = 'marienutrition';
-$user = 'root';
-$pass = '';
+
+include 'configBDD.php';
+
+$host = servername;
+$db = dbname;
+$user = username;
+$pass = password;
+
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

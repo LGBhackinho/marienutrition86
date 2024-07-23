@@ -1,10 +1,14 @@
 <?php
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "marienutrition";
+// Configuration de la base de données
+
+include 'configBDD.php';
+
+$servername = servername;
+$dbname = dbname;
+$username = username;
+$password = password;
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

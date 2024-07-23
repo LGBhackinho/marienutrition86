@@ -1,13 +1,13 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Configuration de la base de données
 
+include 'configBDD.php';
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "marienutrition";
+$servername = servername;
+$dbname = dbname;
+$username = username;
+$password = password;
 
 session_start();
 $user_id = $_SESSION['userid'];

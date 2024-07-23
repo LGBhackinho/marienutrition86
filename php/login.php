@@ -2,11 +2,14 @@
 header('Content-Type: application/json');
 
 
-// Connexion à la base de données (à adapter avec vos paramètres)
-$servername = "localhost"; // Remplacez par le bon nom d'hôte si nécessaire
-$username = "root";
-$password = "";
-$dbname = "marienutrition";
+// Configuration de la base de données
+
+include 'configBDD.php';
+
+$servername = servername;
+$dbname = dbname;
+$username = username;
+$password = password;
 
 // Création de la connexion
 $conn = new mysqli($servername, $username, $password, $dbname);

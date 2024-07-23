@@ -1,16 +1,19 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['userid'])) {
+if (!isset($_SESSION['userid'])|| (!$_SESSION['userid']=== 1 && !$_SESSION['userid']=== 2) ) {
     header('Location: ../html/login.html');
     exit;
 }
 
 // Configuration de la base de données
-$host = 'localhost';
-$db = 'marienutrition';
-$user = 'root';
-$pass = '';
+
+include 'configBDD.php';
+
+$host = servername;
+$db = dbname;
+$user = username;
+$pass = password;
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -25,17 +28,17 @@ try {
     die("Échec de la connexion : " . $e->getMessage());
 }
 
-// Traitement de la suppression si un choix est envoyé par POST
+// Traitement de la suppression d un fichier
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_file'])) {
     $file_id = $_POST['delete_file'];
 
-    // Récupérer le chemin du fichier pour pouvoir le supprimer du serveur si nécessaire
+    // Récupérer le chemin du fichier pour pouvoir le supprimer du serveur
     $stmt = $pdo->prepare("SELECT filepath FROM files WHERE id = ?");
     $stmt->execute([$file_id]);
     $file = $stmt->fetch();
 
     if ($file) {
-        // Supprimer le fichier du serveur (à implémenter selon vos besoins)
+        // Supprimer le fichier du serveur 
         unlink($file['filepath']);
 
         // Supprimer l'entrée de la base de données
@@ -45,6 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_file'])) {
         echo "Fichier supprimé avec succès.";
     }
 }
+
+///// TRAITEMENT DE SUPPRESSION D UN USER ET DES DONNEES PROPRE A LUI  NON FONCTIONNEL A CE JOUR 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_user_files'])) {
     $user_id = $_POST['delete_user_files'];
@@ -86,7 +91,7 @@ $users = $stmt->fetchAll(PDO::FETCH_GROUP); // Regrouper les résultats par ID u
 </head>
 <body>
     <h1>Uploader un fichier</h1>
-    <form action="/siteMarie/php/upload.php" method="post" enctype="multipart/form-data">
+    <form action="/php/upload.php" method="post" enctype="multipart/form-data">
         <label for="user_id">Utilisateur :</label>
         <select name="user_id" id="user_id">
             <!-- Remplir dynamiquement avec les utilisateurs de la base de données -->

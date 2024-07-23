@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
             ".container-menu-smartphone"
           );
           const menuBtn = document.querySelector(".menu-btn");
-
           menuBtn.classList.remove("open");
           menuSmartphone.classList.remove("visible");
 

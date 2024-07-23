@@ -1,11 +1,16 @@
 <?php
 session_start();
 
+// Configuration de la base de données
+
+include 'configBDD.php';
+
 $userId = $_SESSION['userid']; // Assurez-vous que l'ID utilisateur est stocké en session lors de la connexion
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "marienutrition";
+
+$servername = servername;
+$dbname = dbname;
+$username = username;
+$password = password;
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
